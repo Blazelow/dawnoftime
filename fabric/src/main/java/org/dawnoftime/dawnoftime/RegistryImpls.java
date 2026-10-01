@@ -11,6 +11,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.level.block.entity.BannerPattern;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -169,6 +170,14 @@ public class RegistryImpls {
     }
 
     public static void init() {
+        Registry.register(BuiltInRegistries.BANNER_PATTERN, new ResourceLocation(DoTBCommon.MOD_ID, "chinese_emblem"), new BannerPattern("dawnoftimebuilder_cn"));
+        Registry.register(BuiltInRegistries.BANNER_PATTERN, new ResourceLocation(DoTBCommon.MOD_ID, "german_emblem"),       new BannerPattern("dawnoftimebuilder_ge"));
+        Registry.register(BuiltInRegistries.BANNER_PATTERN, new ResourceLocation(DoTBCommon.MOD_ID, "french_emblem"),       new BannerPattern("dawnoftimebuilder_fr"));
+        Registry.register(BuiltInRegistries.BANNER_PATTERN, new ResourceLocation(DoTBCommon.MOD_ID, "japanese_emblem"),     new BannerPattern("dawnoftimebuilder_jp"));
+        Registry.register(BuiltInRegistries.BANNER_PATTERN, new ResourceLocation(DoTBCommon.MOD_ID, "persian_emblem"),      new BannerPattern("dawnoftimebuilder_pe"));
+        Registry.register(BuiltInRegistries.BANNER_PATTERN, new ResourceLocation(DoTBCommon.MOD_ID, "precolumbian_emblem"), new BannerPattern("dawnoftimebuilder_pc"));
+        Registry.register(BuiltInRegistries.BANNER_PATTERN, new ResourceLocation(DoTBCommon.MOD_ID, "roman_emblem"),        new BannerPattern("dawnoftimebuilder_ro"));
+
         DoTBEntitiesRegistry.INSTANCE = new FabricEntitiesRegistry();
         DoTBBlocksRegistry.INSTANCE = new FabricBlocksRegistry();
         FabricItemsRegistry.INSTANCE = new FabricItemsRegistry();

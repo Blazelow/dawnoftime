@@ -25,6 +25,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.world.level.block.entity.BannerPattern;
 import org.dawnoftime.dawnoftime.item.IconItem;
 import org.dawnoftime.dawnoftime.registry.*;
 
@@ -138,6 +139,15 @@ public class RegistryImpls {
         }
     }
 
+    public static final DeferredRegister<BannerPattern> BANNER_PATTERNS_REGISTRY = DeferredRegister.create(Registries.BANNER_PATTERN, DoTBCommon.MOD_ID);
+    public static final RegistryObject<BannerPattern> CHINESE_EMBLEM_PATTERN = BANNER_PATTERNS_REGISTRY.register("chinese_emblem", () -> new BannerPattern("dawnoftimebuilder_cn"));
+    public static final RegistryObject<BannerPattern> GERMAN_EMBLEM_PATTERN       = BANNER_PATTERNS_REGISTRY.register("german_emblem",       () -> new BannerPattern("dawnoftimebuilder_ge"));
+    public static final RegistryObject<BannerPattern> FRENCH_EMBLEM_PATTERN       = BANNER_PATTERNS_REGISTRY.register("french_emblem",       () -> new BannerPattern("dawnoftimebuilder_fr"));
+    public static final RegistryObject<BannerPattern> JAPANESE_EMBLEM_PATTERN     = BANNER_PATTERNS_REGISTRY.register("japanese_emblem",     () -> new BannerPattern("dawnoftimebuilder_jp"));
+    public static final RegistryObject<BannerPattern> PERSIAN_EMBLEM_PATTERN      = BANNER_PATTERNS_REGISTRY.register("persian_emblem",      () -> new BannerPattern("dawnoftimebuilder_pe"));
+    public static final RegistryObject<BannerPattern> PRECOLUMBIAN_EMBLEM_PATTERN = BANNER_PATTERNS_REGISTRY.register("precolumbian_emblem", () -> new BannerPattern("dawnoftimebuilder_pc"));
+    public static final RegistryObject<BannerPattern> ROMAN_EMBLEM_PATTERN        = BANNER_PATTERNS_REGISTRY.register("roman_emblem",        () -> new BannerPattern("dawnoftimebuilder_ro"));
+
     public static void init(IEventBus bus) {
         DoTBEntitiesRegistry.INSTANCE = new ForgeEntitiesRegistry();
         ForgeEntitiesRegistry.ENTITY_TYPES_REGISTRY.register(bus);
@@ -160,6 +170,7 @@ public class RegistryImpls {
         ForgeRecipeSerializersRegistry.RECIPE_SERIALIZERS_REGISTRY.register(bus);
         ForgeRecipeTypesRegistry.RECIPE_TYPES_REGISTRY.register(bus);
         ForgeCreativeModeTabsRegistry.CREATIVE_MODE_TABS_REGISTRY.register(bus);
+        BANNER_PATTERNS_REGISTRY.register(bus);
 
         bus.addListener((BuildCreativeModeTabContentsEvent event) -> {
             if(event.getTab() == DoTBCreativeModeTabsRegistry.INSTANCE.DOT_TAB.get()) {

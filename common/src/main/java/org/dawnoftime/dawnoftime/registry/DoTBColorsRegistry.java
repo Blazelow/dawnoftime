@@ -21,7 +21,8 @@ public class DoTBColorsRegistry {
     private static final Map<BlockColor, List<Supplier<Block>>> BLOCKS_COLOR_REGISTRY = new HashMap<>();
     public static final BlockColor WATER_BLOCK_COLOR = DoTBColorsRegistry.register((blockStateIn, blockDisplayReaderIn, blockPosIn, tintIndexIn) -> BiomeColors.getAverageWaterColor(blockDisplayReaderIn, blockPosIn),
             DoTBBlocksRegistry.INSTANCE.STONE_BRICKS_FAUCET, DoTBBlocksRegistry.INSTANCE.STONE_BRICKS_POOL, DoTBBlocksRegistry.INSTANCE.STONE_BRICKS_SMALL_POOL, DoTBBlocksRegistry.INSTANCE.WATER_FLOWING_TRICKLE,
-            DoTBBlocksRegistry.INSTANCE.WATER_SOURCE_TRICKLE, DoTBBlocksRegistry.INSTANCE.STONE_BRICKS_WATER_JET);
+            DoTBBlocksRegistry.INSTANCE.WATER_SOURCE_TRICKLE, DoTBBlocksRegistry.INSTANCE.STONE_BRICKS_WATER_JET,
+            DoTBBlocksRegistry.INSTANCE.SANDSTONE_FAUCET, DoTBBlocksRegistry.INSTANCE.SANDSTONE_POOL, DoTBBlocksRegistry.INSTANCE.SANDSTONE_SMALL_POOL, DoTBBlocksRegistry.INSTANCE.SANDSTONE_WATER_JET);
     private static final Map<ItemColor, List<Supplier<Item>>> ITEMS_COLOR_REGISTRY = new HashMap<>();
     public static final ItemColor WATER_ITEM_COLOR = DoTBColorsRegistry.register(
             (itemStackIn, i) -> {
@@ -41,7 +42,8 @@ public class DoTBColorsRegistry {
                 }
 
                 return oceanBiome.getWaterColor();
-            }, () -> DoTBBlocksRegistry.INSTANCE.STONE_BRICKS_FAUCET.get().asItem(), () -> DoTBBlocksRegistry.INSTANCE.WATER_SOURCE_TRICKLE.get().asItem(), () -> DoTBBlocksRegistry.INSTANCE.STONE_BRICKS_WATER_JET.get().asItem());
+            }, () -> DoTBBlocksRegistry.INSTANCE.STONE_BRICKS_FAUCET.get().asItem(), () -> DoTBBlocksRegistry.INSTANCE.WATER_SOURCE_TRICKLE.get().asItem(), () -> DoTBBlocksRegistry.INSTANCE.STONE_BRICKS_WATER_JET.get().asItem(),
+            () -> DoTBBlocksRegistry.INSTANCE.SANDSTONE_FAUCET.get().asItem(), () -> DoTBBlocksRegistry.INSTANCE.SANDSTONE_WATER_JET.get().asItem());
 
     public static final BlockColor LEAVES_BLOCK_COLOR = DoTBColorsRegistry.register(
             (blockState, blockAndTintGetter, blockPos, tintIndexIn) -> BiomeColors.getAverageFoliageColor(blockAndTintGetter, blockPos),

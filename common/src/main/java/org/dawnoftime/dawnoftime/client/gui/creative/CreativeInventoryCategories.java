@@ -146,7 +146,8 @@ public enum CreativeInventoryCategories {
                     DoTBBlocksRegistry.INSTANCE.CAST_IRON_TEACUP_DECORATED.get().asItem(),
                     DoTBBlocksRegistry.INSTANCE.IRORI_FIREPLACE.get().asItem(),
                     Items.FLINT_AND_STEEL,
-                    DoTBItemsRegistry.INSTANCE.JAPANESE_EMBLEM.get()
+                    DoTBBlocksRegistry.INSTANCE.JAPANESE_EMBLEM.get().asItem(),
+                    DoTBItemsRegistry.INSTANCE.JAPANESE_BANNER_PATTERN.get()
             )
     )),
 
@@ -233,7 +234,8 @@ public enum CreativeInventoryCategories {
                     DoTBBlocksRegistry.INSTANCE.CANDLESTICK.get().asItem(),
                     DoTBBlocksRegistry.INSTANCE.WAXED_OAK_CHANDELIER.get().asItem(),
                     Items.FLINT_AND_STEEL,
-                    DoTBItemsRegistry.INSTANCE.GERMAN_EMBLEM.get()
+                    DoTBBlocksRegistry.INSTANCE.GERMAN_EMBLEM.get().asItem(),
+                    DoTBItemsRegistry.INSTANCE.GERMAN_BANNER_PATTERN.get()
             )
     )),
     
@@ -242,6 +244,10 @@ public enum CreativeInventoryCategories {
             DoTBBlocksRegistry.INSTANCE.SANDSTONE_COLUMN.get().asItem(),
             DoTBBlocksRegistry.INSTANCE.SANDSTONE_SIDED_COLUMN.get().asItem(),
             DoTBBlocksRegistry.INSTANCE.COVERED_SANDSTONE_WALL.get().asItem(),
+            DoTBBlocksRegistry.INSTANCE.SANDSTONE_POOL.get().asItem(),
+            DoTBBlocksRegistry.INSTANCE.SANDSTONE_SMALL_POOL.get().asItem(),
+            DoTBBlocksRegistry.INSTANCE.SANDSTONE_FAUCET.get().asItem(),
+            DoTBBlocksRegistry.INSTANCE.SANDSTONE_WATER_JET.get().asItem(),
 
             DoTBBlocksRegistry.INSTANCE.BIRCH_FANCY_FENCE.get().asItem(),
             DoTBBlocksRegistry.INSTANCE.BIRCH_FOOTSTOOL.get().asItem(),
@@ -295,7 +301,8 @@ public enum CreativeInventoryCategories {
             DoTBItemsRegistry.INSTANCE.CLAY_TILE.get(),
             DoTBItemsRegistry.INSTANCE.CLAY_TILE_ORANGE.get(),
             DoTBItemsRegistry.INSTANCE.CLAY_TILE_BLACK.get(),
-            DoTBItemsRegistry.INSTANCE.ROMAN_EMBLEM.get()
+            DoTBBlocksRegistry.INSTANCE.ROMAN_EMBLEM.get().asItem(),
+            DoTBItemsRegistry.INSTANCE.ROMAN_BANNER_PATTERN.get()
     ),
     PRE_COLOMBIAN("pre_columbian", "https://www.youtube.com/playlist?list=PLRp3sDcdVhnTP3E2QNE-2E-inx1K51Btu", List.of(
 
@@ -362,7 +369,8 @@ public enum CreativeInventoryCategories {
                     DoTBBlocksRegistry.INSTANCE.PLASTERED_STONE_CRESSET.get().asItem(),
                     DoTBBlocksRegistry.INSTANCE.FIREPLACE.get().asItem(),
 
-                    DoTBItemsRegistry.INSTANCE.PRECOLUMBIAN_EMBLEM.get()
+                    DoTBBlocksRegistry.INSTANCE.PRECOLUMBIAN_EMBLEM.get().asItem(),
+                    DoTBItemsRegistry.INSTANCE.PRECOLUMBIAN_BANNER_PATTERN.get()
             ),
 
             new SubTab("painted",
@@ -464,7 +472,8 @@ public enum CreativeInventoryCategories {
             DoTBBlocksRegistry.INSTANCE.LIMESTONE_CHIMNEY.get().asItem(),
             DoTBBlocksRegistry.INSTANCE.IRON_COLUMN.get().asItem(),
             DoTBBlocksRegistry.INSTANCE.IRON_FANCY_LANTERN.get().asItem(),
-            DoTBItemsRegistry.INSTANCE.FRENCH_EMBLEM.get()
+            DoTBBlocksRegistry.INSTANCE.FRENCH_EMBLEM.get().asItem(),
+            DoTBItemsRegistry.INSTANCE.FRENCH_BANNER_PATTERN.get()
     ),
     PERSIAN("persian", null,
 
@@ -503,7 +512,8 @@ public enum CreativeInventoryCategories {
             DoTBItemsRegistry.INSTANCE.CLAY_TILE_WHITE.get(),
             DoTBItemsRegistry.INSTANCE.CLAY_TILE_CYAN.get(),
             DoTBItemsRegistry.INSTANCE.CLAY_TILE_BLUE.get(),
-            DoTBItemsRegistry.INSTANCE.PERSIAN_EMBLEM.get()
+            DoTBBlocksRegistry.INSTANCE.PERSIAN_EMBLEM.get().asItem(),
+            DoTBItemsRegistry.INSTANCE.PERSIAN_BANNER_PATTERN.get()
     ),
     CHINESE("chinese", null,
             DoTBBlocksRegistry.INSTANCE.SLATE_BRICKS.get().asItem(),
@@ -512,6 +522,7 @@ public enum CreativeInventoryCategories {
             DoTBBlocksRegistry.INSTANCE.SLATE_BRICKS_SLAB.get().asItem(),
             DoTBBlocksRegistry.INSTANCE.SLATE_BRICKS_EDGE.get().asItem(),
             DoTBBlocksRegistry.INSTANCE.SLATE_BRICKS_WALL.get().asItem(),
+            DoTBBlocksRegistry.INSTANCE.SLATE_BRICKS_CHIMNEY.get().asItem(),
 
             DoTBBlocksRegistry.INSTANCE.WAXED_ACACIA_LOG_STRIPPED.get().asItem(),
             DoTBBlocksRegistry.INSTANCE.WAXED_ACACIA_PLANKS.get().asItem(),
@@ -540,29 +551,8 @@ public enum CreativeInventoryCategories {
 
             DoTBBlocksRegistry.INSTANCE.RED_ROUND_PAPER_LANTERN.get().asItem(),
             DoTBBlocksRegistry.INSTANCE.STONE_OVEN.get().asItem(),
-            DoTBItemsRegistry.INSTANCE.CHINESE_EMBLEM.get()
-    ),
-
-    PATREON("patreon", null,
-            DoTBItemsRegistry.INSTANCE.PATREON_TIER_1.get(),
-            DoTBBlocksRegistry.INSTANCE.SILVER_SAKE_BOTTLE.get().asItem(),
-            DoTBBlocksRegistry.INSTANCE.SILVER_FEATHERED_SERPENT_SCULPTURE.get().asItem(),
-            DoTBBlocksRegistry.INSTANCE.SILVER_SERPENT_SCULTPED_COLUMN.get().asItem(),
-            DoTBBlocksRegistry.INSTANCE.SILVER_MARBLE_STATUE_MARS.get().asItem(),
-
-            DoTBItemsRegistry.INSTANCE.PATREON_TIER_2.get(),
-            DoTBBlocksRegistry.INSTANCE.GOLDEN_SAKE_BOTTLE.get().asItem(),
-            DoTBBlocksRegistry.INSTANCE.GOLDEN_MARBLE_STATUE_MARS.get().asItem(),
-            DoTBItemsRegistry.INSTANCE.PATREON_TIER_3.get(),
-            DoTBBlocksRegistry.INSTANCE.BLACKSTONE_MARBLE_STATUE_MARS.get().asItem(),
-
-            DoTBItemsRegistry.INSTANCE.PATREON_TIER_4.get(),
-            DoTBBlocksRegistry.INSTANCE.AMETHYST_SAKE_BOTTLE.get().asItem(),
-            DoTBBlocksRegistry.INSTANCE.AMETHYST_FEATHERED_SERPENT_SCULPTURE.get().asItem(),
-            DoTBBlocksRegistry.INSTANCE.AMETHYST_SERPENT_SCULTPED_COLUMN.get().asItem(),
-
-            DoTBItemsRegistry.INSTANCE.PATREON_TIER_5.get(),
-            DoTBItemsRegistry.INSTANCE.PATREON_TIER_6.get()
+            DoTBBlocksRegistry.INSTANCE.CHINESE_EMBLEM.get().asItem(),
+            DoTBItemsRegistry.INSTANCE.CHINESE_BANNER_PATTERN.get()
     );
 
     private final String name;

@@ -1,6 +1,5 @@
 package org.dawnoftime.dawnoftime.mixin.impl.client;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -10,20 +9,14 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.client.gui.screens.inventory.EffectRenderingInventoryScreen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.ClickType;
-import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.dawnoftime.dawnoftime.client.gui.creative.CreativeInventoryCategories;
 import org.dawnoftime.dawnoftime.client.gui.elements.buttons.CategoryButton;
 import org.dawnoftime.dawnoftime.client.gui.elements.buttons.GroupButton;
 import org.dawnoftime.dawnoftime.client.gui.elements.buttons.PlaylistButton;
 import org.dawnoftime.dawnoftime.client.gui.elements.buttons.SubTabButton;
-import org.dawnoftime.dawnoftime.client.patreon.ClientPatronState;
-import org.dawnoftime.dawnoftime.client.patreon.PatreonGateHelper;
 import org.dawnoftime.dawnoftime.mixin.api.CreativeScreen;
 import org.dawnoftime.dawnoftime.registry.DoTBCreativeModeTabsRegistry;
 import org.spongepowered.asm.mixin.Mixin;
@@ -36,7 +29,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import static org.dawnoftime.dawnoftime.DoTBCommon.CREATIVE_ICONS;
 import static org.dawnoftime.dawnoftime.DoTBCommon.MOD_ID;
@@ -44,16 +36,6 @@ import static org.dawnoftime.dawnoftime.DoTBCommon.MOD_ID;
 @SuppressWarnings("unused")
 @Mixin(CreativeModeInventoryScreen.class)
 public abstract class CreativeInventoryMixin extends EffectRenderingInventoryScreen<CreativeModeInventoryScreen.ItemPickerMenu> implements CreativeScreen {
-    @Unique
-    private static final ResourceLocation TAB_PATREON = new ResourceLocation(MOD_ID, "textures/gui/tab_patreon.png");
-    @Unique
-    private static final String PATREON_URL = "https://www.patreon.com/dawnoftimemod";
-    @Unique
-    private static final String DISCORD_URL = "https://discord.gg/TfSM3qjPUt";
-    @Unique
-    private static final ResourceLocation SOCIAL_PATREON = new ResourceLocation(MOD_ID, "textures/gui/patreon.png");
-    @Unique
-    private static final ResourceLocation SOCIAL_DISCORD = new ResourceLocation(MOD_ID, "textures/gui/discord.png");
     @Shadow public abstract boolean mouseScrolled(double p_98527_, double p_98528_, double p_98529_);
 
     @Unique
@@ -67,8 +49,6 @@ public abstract class CreativeInventoryMixin extends EffectRenderingInventoryScr
     @Unique
     private List<SubTabButton> dOTBuilder$subTabButtons;
     @Unique
-    private List<PlaylistButton> dOTBuilder$socialButtons;
-    @Unique
     private static int dOTBuilder$selectedCategoryID = 0;
     @Unique
     private static int dOTBuilder$selectedSubTabID = 0;
@@ -78,8 +58,6 @@ public abstract class CreativeInventoryMixin extends EffectRenderingInventoryScr
     private boolean dOTBuilder$tabDoTBSelected;
     @Unique
     private final int MAX_PAGE = (int) Math.floor((double) (CreativeInventoryCategories.values().length - 1) / 4);
-    @Unique
-    private Set<Item> dOTBuilder$lockedPatreonItems = Set.of();
 
     protected CreativeInventoryMixin(CreativeModeInventoryScreen.ItemPickerMenu $$0, Inventory $$1, Component $$2) {
         super($$0, $$1, $$2);
@@ -109,19 +87,6 @@ public abstract class CreativeInventoryMixin extends EffectRenderingInventoryScr
         }, CREATIVE_ICONS, 16, 56));
 
         this.addRenderableWidget(this.dOT$youtubePlaylist = new PlaylistButton(this.leftPos + 156, this.topPos + 4, button -> dOTBuilder$openLink(CreativeInventoryCategories.values()[dOTBuilder$selectedCategoryID].getYoutubePlaylist())));
-
-        this.dOTBuilder$socialButtons = new ArrayList<>();
-        PlaylistButton btnPatreon = new PlaylistButton(this.leftPos + 142, this.topPos + 4,
-            button -> dOTBuilder$openLink(PATREON_URL), SOCIAL_PATREON);
-        btnPatreon.setTooltip(Tooltip.create(Component.translatable("tooltip." + MOD_ID + ".patreon_link")));
-        this.dOTBuilder$socialButtons.add(btnPatreon);
-        this.addRenderableWidget(btnPatreon);
-
-        PlaylistButton btnDiscord = new PlaylistButton(this.leftPos + 156, this.topPos + 4,
-            button -> dOTBuilder$openLink(DISCORD_URL), SOCIAL_DISCORD);
-        btnDiscord.setTooltip(Tooltip.create(Component.translatable("tooltip." + MOD_ID + ".discord_link")));
-        this.dOTBuilder$socialButtons.add(btnDiscord);
-        this.addRenderableWidget(btnDiscord);
 
         this.dOTBuilder$subTabButtons = new ArrayList<>();
         this.dOTBuilder$buildSubTabButtons((CreativeModeInventoryScreen) (Object) this);
@@ -171,60 +136,19 @@ public abstract class CreativeInventoryMixin extends EffectRenderingInventoryScr
         dOTBuilder$toggleButtons(this.dOTBuilder$tabDoTBSelected);
     }
 
-    @Inject(method = "render", at = @At(value = "TAIL"))
-    public void dawnoftimebuilder$renderPatreonGating(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick, CallbackInfo ci) {
-        if (!dOTBuilder$tabDoTBSelected || dOTBuilder$lockedPatreonItems.isEmpty()) return;
-        RenderSystem.enableBlend();
-        RenderSystem.defaultBlendFunc();
-        for (Slot slot : this.menu.slots) {
-            if (!slot.hasItem()) continue;
-            if (!dOTBuilder$lockedPatreonItems.contains(slot.getItem().getItem())) continue;
-            int slotX = this.leftPos + slot.x;
-            int slotY = this.topPos + slot.y;
-            guiGraphics.fill(slotX, slotY, slotX + 16, slotY + 16, 0x80111111);
-        }
-        RenderSystem.disableBlend();
-    }
-
-    @Inject(method = "renderBg", at = @At(value = "TAIL"))
-    public void dawnoftimebuilder$renderPatreonOverlay(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY, CallbackInfo ci) {
-        if (this.dOTBuilder$tabDoTBSelected
-                && CreativeInventoryCategories.values()[dOTBuilder$selectedCategoryID] == CreativeInventoryCategories.PATREON) {
-            RenderSystem.enableBlend();
-            RenderSystem.defaultBlendFunc();
-            guiGraphics.blit(TAB_PATREON, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, 256, 256);
-            RenderSystem.disableBlend();
-        }
-    }
-
-    @Inject(method = "slotClicked", at = @At(value = "HEAD"), cancellable = true)
-    public void dawnoftimebuilder$blockLockedSlotClicked(Slot slot, int slotId, int mouseButton, ClickType clickType, CallbackInfo ci) {
-        if (!dOTBuilder$tabDoTBSelected || dOTBuilder$lockedPatreonItems.isEmpty()) return;
-        if (slot == null || !slot.hasItem()) return;
-        if (dOTBuilder$lockedPatreonItems.contains(slot.getItem().getItem())) {
-            ci.cancel();
-        }
-    }
-
     @Unique
     private void dOTBuilder$toggleButtons(boolean val) {
         this.dOTBuilder$btnScrollUp.visible = val;
         this.dOTBuilder$btnScrollDown.visible = val;
-        boolean isPatreon = CreativeInventoryCategories.values()[dOTBuilder$selectedCategoryID] == CreativeInventoryCategories.PATREON;
-        if (!isPatreon) {
-            boolean hasPlaylist = CreativeInventoryCategories.values()[dOTBuilder$selectedCategoryID].getYoutubePlaylist() != null;
-            this.dOT$youtubePlaylist.visible = val && hasPlaylist;
-            if (hasPlaylist) {
-                String key = "tooltip." + MOD_ID + ".youtube_" + CreativeInventoryCategories.values()[dOTBuilder$selectedCategoryID].getName();
-                this.dOT$youtubePlaylist.setTooltip(Tooltip.create(Component.translatable(key)));
-            }
-        } else {
-            this.dOT$youtubePlaylist.visible = false;
+        boolean hasPlaylist = CreativeInventoryCategories.values()[dOTBuilder$selectedCategoryID].getYoutubePlaylist() != null;
+        this.dOT$youtubePlaylist.visible = val && hasPlaylist;
+        if (hasPlaylist) {
+            String key = "tooltip." + MOD_ID + ".youtube_" + CreativeInventoryCategories.values()[dOTBuilder$selectedCategoryID].getName();
+            this.dOT$youtubePlaylist.setTooltip(Tooltip.create(Component.translatable(key)));
         }
         this.dOTBuilder$buttons.forEach(button -> button.visible = val);
         boolean hasSubTabs = CreativeInventoryCategories.values()[dOTBuilder$selectedCategoryID].hasSubTabs();
         this.dOTBuilder$subTabButtons.forEach(button -> button.visible = val && hasSubTabs);
-        this.dOTBuilder$socialButtons.forEach(button -> button.visible = val && isPatreon);
     }
 
     @Inject(method = "selectTab", at = @At(value = "HEAD"), cancellable = false)
@@ -274,15 +198,6 @@ public abstract class CreativeInventoryMixin extends EffectRenderingInventoryScr
         container.items.clear();
         CreativeInventoryCategories.values()[dOTBuilder$selectedCategoryID].getSubTabItems(dOTBuilder$selectedSubTabID).forEach(item -> container.items.add(new ItemStack(item)));
         container.scrollTo(0);
-
-        if (CreativeInventoryCategories.values()[dOTBuilder$selectedCategoryID] == CreativeInventoryCategories.PATREON) {
-            dOTBuilder$lockedPatreonItems = PatreonGateHelper.computeLockedItems(
-                CreativeInventoryCategories.PATREON.getItems(),
-                ClientPatronState.playerTier
-            );
-        } else {
-            dOTBuilder$lockedPatreonItems = Set.of();
-        }
     }
 
     @Unique
