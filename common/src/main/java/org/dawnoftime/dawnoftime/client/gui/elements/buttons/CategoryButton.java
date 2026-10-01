@@ -9,9 +9,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import org.dawnoftime.dawnoftime.client.gui.creative.CreativeInventoryCategories;
 import org.dawnoftime.dawnoftime.mixin.api.CreativeScreen;
-import org.dawnoftime.dawnoftime.util.CustomWidgetTooltipHolder;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.joml.Vector2i;
 
 import static org.dawnoftime.dawnoftime.DoTBCommon.CREATIVE_ICONS;
 import static org.dawnoftime.dawnoftime.DoTBCommon.MOD_ID;
@@ -28,7 +28,6 @@ public class CategoryButton extends Button {
         this.selected = false;
         this.index = index;
         this.parent = parent;
-        this.tooltip = new CustomWidgetTooltipHolder();
     }
 
     public void setSelected(boolean selected) {
@@ -95,9 +94,4 @@ public class CategoryButton extends Button {
     public @Nullable Tooltip getTooltip() {
         return this.active ? super.getTooltip() : null;
     }
-
-//    @Override
-//    protected ClientTooltipPositioner createTooltipPositioner() {
-//        return DefaultTooltipPositioner.INSTANCE;
-//    }
 }

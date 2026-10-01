@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " x ",
+    "bib",
+    "bib"
+  ],
+  "key": {
+    "b": {
+      "item": "dawnoftimebuilder:plastered_stone"
+    },
+    "i": {
+      "item": "dawnoftimebuilder:red_plastered_stone"
+    },
+    "x": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "result": {
+    "count": 4,
+    "id": "dawnoftimebuilder:precolumbian_emblem"
+  }
+}

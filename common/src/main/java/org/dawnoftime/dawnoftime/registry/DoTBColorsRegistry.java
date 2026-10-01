@@ -23,7 +23,11 @@ public class DoTBColorsRegistry {
             DoTBBlocksRegistry.INSTANCE.STONE_BRICKS_SMALL_POOL,
             DoTBBlocksRegistry.INSTANCE.WATER_FLOWING_TRICKLE,
             DoTBBlocksRegistry.INSTANCE.WATER_SOURCE_TRICKLE,
-            DoTBBlocksRegistry.INSTANCE.STONE_BRICKS_WATER_JET
+            DoTBBlocksRegistry.INSTANCE.STONE_BRICKS_WATER_JET,
+            DoTBBlocksRegistry.INSTANCE.SANDSTONE_FAUCET,
+            DoTBBlocksRegistry.INSTANCE.SANDSTONE_POOL,
+            DoTBBlocksRegistry.INSTANCE.SANDSTONE_SMALL_POOL,
+            DoTBBlocksRegistry.INSTANCE.SANDSTONE_WATER_JET
     );
 
     public static final ItemColor WATER_ITEM_COLOR = DoTBColorsRegistry.register(
@@ -38,7 +42,9 @@ public class DoTBColorsRegistry {
             },
             () -> DoTBBlocksRegistry.INSTANCE.STONE_BRICKS_FAUCET.get().asItem(),
             () -> DoTBBlocksRegistry.INSTANCE.WATER_SOURCE_TRICKLE.get().asItem(),
-            () -> DoTBBlocksRegistry.INSTANCE.STONE_BRICKS_WATER_JET.get().asItem()
+            () -> DoTBBlocksRegistry.INSTANCE.STONE_BRICKS_WATER_JET.get().asItem(),
+            () -> DoTBBlocksRegistry.INSTANCE.SANDSTONE_FAUCET.get().asItem(),
+            () -> DoTBBlocksRegistry.INSTANCE.SANDSTONE_WATER_JET.get().asItem()
     );
 
     public static Map<BlockColor, List<Supplier<Block>>> getBlocksColorRegistry() {

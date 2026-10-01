@@ -1,15 +1,15 @@
-﻿{
-	"type": "minecraft:crafting_shaped",
-	"pattern": [
-		"III"
-	],
-	"key": {
-		"I": {
-			"item": "dawnoftimebuilder:cobbled_limestone"
-		}
-	},
-	"result": {
-		"id": "dawnoftimebuilder:cobbled_limestone_slab",
-		"count": 6
-	}
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:cobbled_limestone"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "dawnoftimebuilder:cobbled_limestone_slab"
+  }
 }

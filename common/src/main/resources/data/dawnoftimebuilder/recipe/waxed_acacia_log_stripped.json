@@ -1,4 +1,4 @@
-﻿{
+{
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
@@ -30,7 +30,7 @@
     }
   ],
   "result": {
-    "id": "dawnoftimebuilder:waxed_acacia_log_stripped",
-    "count": 8
+    "count": 8,
+    "id": "dawnoftimebuilder:waxed_acacia_log_stripped"
   }
 }

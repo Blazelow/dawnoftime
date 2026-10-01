@@ -31,6 +31,14 @@ public class VoxelShapes {
             new VoxelShape[]{Block.box(4.0D, 1.0D, 0.0D, 12.0D, 15.0D, 14.0D)},
             Block.box(5.0D, 0.0D, 5.0D, 11.0D, 15.0D, 11.0D));
     public static final VoxelShape[] CARPET_SHAPES = new VoxelShape[]{Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D)};
+    // index 0=floor, 1=SOUTH wall, 2=WEST wall, 3=NORTH wall, 4=EAST wall
+    public static final VoxelShape[] WALL_OR_FLOOR_CARPET_SHAPES = {
+        Block.box( 0, 0,  0, 16,  1, 16),  // 0 - floor
+        Block.box( 0, 0, 15, 16, 16, 16),  // 1 - SOUTH wall
+        Block.box( 0, 0,  0,  1, 16, 16),  // 2 - WEST wall
+        Block.box( 0, 0,  0, 16, 16,  1),  // 3 - NORTH wall
+        Block.box(15, 0,  0, 16, 16, 16),  // 4 - EAST wall
+    };
     public static final VoxelShape[] CAST_IRON_TEAPOT_SHAPES = new VoxelShape[]{Block.box(4.8D, 0.0D, 4.8D, 11.2D, 6.4D, 11.2D)};
     public static final VoxelShape[] CAST_IRON_TEACUP_SHAPES = new VoxelShape[]{Block.box(6.0D, 0.0D, 6.0D, 10.0D, 4.0D, 10.0D)};
     public static final VoxelShape[] CHARRED_SPRUCE_FANCY_RAILING_SHAPES = makeCharredSpruceFancyRailingShapes();

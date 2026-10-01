@@ -1,4 +1,4 @@
-﻿{
+{
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "ixi",
@@ -13,7 +13,7 @@
     }
   },
   "result": {
-    "id": "dawnoftimebuilder:painted_acacia_fence",
-    "count": 6
+    "count": 6,
+    "id": "dawnoftimebuilder:painted_acacia_fence"
   }
 }

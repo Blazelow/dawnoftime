@@ -1,8 +1,7 @@
-﻿{
+{
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "iii"
-
   ],
   "key": {
     "i": {
@@ -10,7 +9,7 @@
     }
   },
   "result": {
-    "id": "dawnoftimebuilder:straight_raked_gravel",
-    "count": 3
+    "count": 3,
+    "id": "dawnoftimebuilder:straight_raked_gravel"
   }
 }

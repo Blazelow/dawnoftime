@@ -1,19 +1,19 @@
-﻿{
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "iI",
-        "Ii"
-    ],
-    "key": {
-        "I": {
-            "item": "minecraft:clay_ball"
-        },
-        "i": {
-            "item": "minecraft:wheat"
-        }
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iI",
+    "Ii"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:clay_ball"
     },
-    "result": {
-        "id": "dawnoftimebuilder:wattle_and_daub",
-        "count": 8
+    "i": {
+      "item": "minecraft:wheat"
     }
+  },
+  "result": {
+    "count": 8,
+    "id": "dawnoftimebuilder:wattle_and_daub"
+  }
 }

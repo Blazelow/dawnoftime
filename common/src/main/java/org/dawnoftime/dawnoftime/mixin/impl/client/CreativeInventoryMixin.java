@@ -16,11 +16,9 @@ import org.dawnoftime.dawnoftime.client.gui.creative.CreativeInventoryCategories
 import org.dawnoftime.dawnoftime.client.gui.elements.buttons.CategoryButton;
 import org.dawnoftime.dawnoftime.client.gui.elements.buttons.GroupButton;
 import org.dawnoftime.dawnoftime.client.gui.elements.buttons.PlaylistButton;
-import org.dawnoftime.dawnoftime.client.gui.elements.buttons.SocialsButton;
 import org.dawnoftime.dawnoftime.client.gui.elements.buttons.SubTabButton;
 import org.dawnoftime.dawnoftime.mixin.api.CreativeScreen;
 import org.dawnoftime.dawnoftime.registry.DoTBCreativeModeTabsRegistry;
-import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -35,7 +33,6 @@ import static org.dawnoftime.dawnoftime.DoTBCommon.CREATIVE_ICONS;
 import static org.dawnoftime.dawnoftime.DoTBCommon.MOD_ID;
 
 @SuppressWarnings("unused")
-@Debug(print = true)
 @Mixin(CreativeModeInventoryScreen.class)
 public abstract class CreativeInventoryMixin extends EffectRenderingInventoryScreen<CreativeModeInventoryScreen.ItemPickerMenu> implements CreativeScreen {
 
@@ -45,14 +42,6 @@ public abstract class CreativeInventoryMixin extends EffectRenderingInventoryScr
     private Button dOTBuilder$btnScrollUp;
     @Unique
     private Button dOTBuilder$btnScrollDown;
-    @Unique
-    private Button dOTBuilder$discord;
-    @Unique
-    private Button dOTBuilder$curse;
-    @Unique
-    private Button dOTBuilder$patreon;
-    @Unique
-    private Button dOTBuilder$github;
     @Unique
     private Button dOT$youtubePlaylist;
     @Unique
@@ -95,16 +84,7 @@ public abstract class CreativeInventoryMixin extends EffectRenderingInventoryScr
             }
         }, CREATIVE_ICONS, 16, 56));
 
-        this.addRenderableWidget(this.dOTBuilder$discord = new SocialsButton(this.leftPos - 68, this.topPos - 10, "discord", button -> dOTBuilder$openLink("https://discord.gg/GfPPxR7eg3")));
-        this.dOTBuilder$discord.setTooltip(Tooltip.create(Component.literal("Discord")));
-        this.addRenderableWidget(this.dOTBuilder$curse = new SocialsButton(this.leftPos - 68, this.topPos + 27, "curse", button -> dOTBuilder$openLink("https://www.curseforge.com/minecraft/mc-mods/dawn-of-time")));
-        this.dOTBuilder$curse.setTooltip(Tooltip.create(Component.literal("Curse Forge")));
-        this.addRenderableWidget(this.dOTBuilder$patreon = new SocialsButton(this.leftPos - 68, this.topPos + 64, "patreon", button -> dOTBuilder$openLink("https://www.patreon.com/dawnoftimemod")));
-        this.dOTBuilder$patreon.setTooltip(Tooltip.create(Component.literal("Patreon")));
-        this.addRenderableWidget(this.dOTBuilder$github = new SocialsButton(this.leftPos - 68, this.topPos + 101, "github", button -> dOTBuilder$openLink("https://github.com/PierreChag/dawnoftimebuilder")));
-        this.dOTBuilder$github.setTooltip(Tooltip.create(Component.literal("Github")));
         this.addRenderableWidget(this.dOT$youtubePlaylist = new PlaylistButton(this.leftPos + 156, this.topPos + 4, button -> dOTBuilder$openLink(CreativeInventoryCategories.values()[dOTBuilder$selectedCategoryID].getYoutubePlaylist())));
-        this.dOT$youtubePlaylist.setTooltip(Tooltip.create(Component.translatable("tooltip." + MOD_ID + ".youtube_playlist")));
 
         this.dOTBuilder$subTabButtons = new ArrayList<>();
         this.dOTBuilder$buildSubTabButtons((CreativeModeInventoryScreen) (Object) this);
@@ -157,13 +137,13 @@ public abstract class CreativeInventoryMixin extends EffectRenderingInventoryScr
     @Unique
     private void dOTBuilder$toggleButtons(boolean val) {
         this.dOTBuilder$btnScrollUp.visible = val;
-        this.dOTBuilder$btnScrollDown.visible =  val;
-        this.dOTBuilder$discord.visible = val;
-        this.dOTBuilder$curse.visible = val;
-        this.dOTBuilder$patreon.visible = val;
-        this.dOTBuilder$github.visible = val;
-        this.dOT$youtubePlaylist.visible = val;
-        this.dOT$youtubePlaylist.active = CreativeInventoryCategories.values()[dOTBuilder$selectedCategoryID].getYoutubePlaylist() != null;
+        this.dOTBuilder$btnScrollDown.visible = val;
+        boolean hasPlaylist = CreativeInventoryCategories.values()[dOTBuilder$selectedCategoryID].getYoutubePlaylist() != null;
+        this.dOT$youtubePlaylist.visible = val && hasPlaylist;
+        if (hasPlaylist) {
+            String key = "tooltip." + MOD_ID + ".youtube_" + CreativeInventoryCategories.values()[dOTBuilder$selectedCategoryID].getName();
+            this.dOT$youtubePlaylist.setTooltip(Tooltip.create(Component.translatable(key)));
+        }
         this.dOTBuilder$buttons.forEach(button -> button.visible = val);
         boolean hasSubTabs = CreativeInventoryCategories.values()[dOTBuilder$selectedCategoryID].hasSubTabs();
         this.dOTBuilder$subTabButtons.forEach(button -> button.visible = val && hasSubTabs);

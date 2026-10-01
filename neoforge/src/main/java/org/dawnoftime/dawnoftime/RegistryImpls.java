@@ -7,6 +7,10 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.CreativeModeTab;
@@ -30,6 +34,15 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class RegistryImpls {
+    public static class ForgeMenusRegistry extends DoTBMenusRegistry {
+        public static final DeferredRegister<MenuType<?>> MENU_TYPES_REGISTRY = DeferredRegister.create(BuiltInRegistries.MENU, DoTBCommon.MOD_ID);
+
+        @Override
+        public <T extends AbstractContainerMenu> Supplier<MenuType<T>> register(String name, BiFunction<Integer, Inventory, T> factory) {
+            return MENU_TYPES_REGISTRY.register(name, () -> new MenuType<T>(factory::apply, FeatureFlags.DEFAULT_FLAGS));
+        }
+    }
+
     public static class ForgeBlockEntitiesRegistry extends DoTBBlockEntitiesRegistry {
         public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES_REGISTRY = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, DoTBCommon.MOD_ID);
 
@@ -129,6 +142,7 @@ public class RegistryImpls {
 
         DoTBBlocksRegistry.INSTANCE = new ForgeBlocksRegistry();
         DoTBItemsRegistry.INSTANCE = new ForgeItemsRegistry();
+        DoTBMenusRegistry.INSTANCE = new ForgeMenusRegistry();
         DoTBBlockEntitiesRegistry.INSTANCE = new ForgeBlockEntitiesRegistry();
         DoTBRecipeSerializersRegistry.INSTANCE = new ForgeRecipeSerializersRegistry();
         DoTBRecipeTypesRegistry.INSTANCE = new ForgeRecipeTypesRegistry();
@@ -140,6 +154,7 @@ public class RegistryImpls {
         ForgeBlocksRegistry.BLOCK_ITEMS_REGISTRY.register(bus);
         ForgeItemsRegistry.ITEMS_REGISTRY.register(bus);
         ForgeBlockEntitiesRegistry.BLOCK_ENTITY_TYPES_REGISTRY.register(bus);
+        ForgeMenusRegistry.MENU_TYPES_REGISTRY.register(bus);
         ForgeRecipeSerializersRegistry.RECIPE_SERIALIZERS_REGISTRY.register(bus);
         ForgeRecipeTypesRegistry.RECIPE_TYPES_REGISTRY.register(bus);
         ForgeCreativeModeTabsRegistry.CREATIVE_MODE_TABS_REGISTRY.register(bus);

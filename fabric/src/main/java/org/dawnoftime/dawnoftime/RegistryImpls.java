@@ -15,6 +15,12 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.MenuType;
+import org.dawnoftime.dawnoftime.client.gui.StoneOvenScreen;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.CreativeModeTab;
@@ -42,6 +48,14 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class RegistryImpls {
+    public static class FabricMenusRegistry extends DoTBMenusRegistry {
+        @Override
+        public <T extends AbstractContainerMenu> Supplier<MenuType<T>> register(String name, BiFunction<Integer, Inventory, T> factory) {
+            MenuType<T> menuType = Registry.register(BuiltInRegistries.MENU, ResourceLocation.fromNamespaceAndPath(DoTBCommon.MOD_ID, name), new MenuType<>(factory::apply, FeatureFlags.DEFAULT_FLAGS));
+            return () -> menuType;
+        }
+    }
+
     public static class FabricBlockEntitiesRegistry extends DoTBBlockEntitiesRegistry {
         @Override
         public <T extends BlockEntity> Supplier<BlockEntityType<T>> register(String name, BiFunction<BlockPos, BlockState, T> factoryIn, Supplier<Block[]> validBlocksSupplier) {
@@ -145,6 +159,8 @@ public class RegistryImpls {
         EntityRendererRegistry.register(DoTBEntitiesRegistry.INSTANCE.CHAIR_ENTITY.get(), ChairRenderer::new);
         BlockEntityRenderers.register(DoTBBlockEntitiesRegistry.INSTANCE.DISPLAYER.get(), DisplayerBERenderer::new);
 
+        MenuScreens.register(DoTBMenusRegistry.INSTANCE.STONE_OVEN.get(), StoneOvenScreen::new);
+
         DoTBColorsRegistry.initialize();
         DoTBColorsRegistry.getBlocksColorRegistry().forEach((blockColor, blocks) -> {
             ColorProviderRegistry.BLOCK.register(blockColor, blocks.stream().map(Supplier::get).toArray(Block[]::new));
@@ -158,6 +174,7 @@ public class RegistryImpls {
         DoTBEntitiesRegistry.INSTANCE = new FabricEntitiesRegistry();
         DoTBBlocksRegistry.INSTANCE = new FabricBlocksRegistry();
         FabricItemsRegistry.INSTANCE = new FabricItemsRegistry();
+        DoTBMenusRegistry.INSTANCE = new FabricMenusRegistry();
         DoTBBlockEntitiesRegistry.INSTANCE = new FabricBlockEntitiesRegistry();
         DoTBRecipeSerializersRegistry.INSTANCE = new FabricRecipeSerializersRegistry();
         DoTBRecipeTypesRegistry.INSTANCE = new FabricRecipeTypesRegistry();

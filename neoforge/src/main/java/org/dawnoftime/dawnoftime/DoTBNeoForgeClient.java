@@ -9,6 +9,9 @@ import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import org.dawnoftime.dawnoftime.client.gui.StoneOvenScreen;
+import org.dawnoftime.dawnoftime.registry.DoTBMenusRegistry;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import org.dawnoftime.dawnoftime.client.renderer.blockentity.DisplayerBERenderer;
 import org.dawnoftime.dawnoftime.client.renderer.entity.ChairRenderer;
@@ -39,6 +42,11 @@ public class DoTBNeoForgeClient {
         eventBus.addListener(DoTBNeoForgeClient::setupBlockColors);
         eventBus.addListener(DoTBNeoForgeClient::setupItemColors);
         eventBus.addListener(DoTBNeoForgeClient::registerRenderers);
+    }
+
+    @SubscribeEvent
+    public static void registerScreens(RegisterMenuScreensEvent event) {
+        event.register(DoTBMenusRegistry.INSTANCE.STONE_OVEN.get(), StoneOvenScreen::new);
     }
 
     @SubscribeEvent

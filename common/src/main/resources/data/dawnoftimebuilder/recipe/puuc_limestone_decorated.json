@@ -1,17 +1,17 @@
-﻿{
-	"type": "minecraft:crafting_shaped",
-	"pattern": [
-		"III",
-		"I I",
-        "III"
-	],
-	"key": {
-		"I": {
-			"item": "dawnoftimebuilder:puuc_limestone"
-		}
-	},
-	"result": {
-		"id": "dawnoftimebuilder:puuc_limestone_decorated",
-		"count": 6
-	}
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "I I",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:puuc_limestone"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "dawnoftimebuilder:puuc_limestone_decorated"
+  }
 }

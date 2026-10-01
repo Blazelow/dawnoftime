@@ -26,41 +26,39 @@ Every block has been designed with builders in mind: a clean and well-organized 
 
 ---
 
-## ✨ Features
+## Features
 
-### 🌍 Multi-Cultural Architecture
+### Multi-Cultural Architecture
 Explore blocks inspired by historical civilizations:
 
-| Culture | Examples |
-|---|---|
-| **French** | Limestone gargoyles, reinforced iron fences, shutters |
-| **German** | Waxed oak furniture, chandeliers, castle elements |
-| **Japanese** | Tatami mats, futons, irori fireplaces, paper lanterns |
-| **Roman** | Marble columns, birch couches, sandstone statues |
-| **Persian** | Moraq mosaic, columns |
-| **Pre-columbian** | Plastered stone, cressets |
+| Culture           | Examples                                              |
+|-------------------|-------------------------------------------------------|
+| **French**        | Limestone gargoyles, reinforced iron fences, shutters |
+| **German**        | Waxed oak furniture, chandeliers, castle elements     |
+| **Japanese**      | Tatami mats, futons, irori fireplaces, paper lanterns |
+| **Roman**         | Marble columns, birch couches, sandstone statues      |
+| **Persian**       | Moraq mosaic, columns                                 |
+| **Pre-columbian** | Plastered stone, cressets                             |
+| **Chinese**       | Waxed acacia, custom furnace, slate bricks            |
 
-### 🪵 Wood Variants
-Most structural blocks come in **10+ wood type variants**: Acacia, Bamboo, Birch, Cherry, Crimson, Dark Oak, Jungle, Mangrove, Oak, Spruce. So everything fits your build's palette.
+### Block Highlights
+- **Structural elements:** Edges, plates, pergolas, beams, support columns, lattices
+- **Doors & Shutters:** Centered and standard doors, fancy railing shutters
+- **Water features:** Complete set of pools, faucets and water jets
+- **Furniture:** Chairs, couches, tables, footstools
+- **Lighting:** Candlesticks, lanterns, cressets, paper lamps, iron columns
+- **Displays:** Table blocks with a 9-slot inventory to showcase your items
+- **Decorative:** Flower pots, teapots, teacups, statues, gargoyles, chimneys, fireplaces
 
-### 🧱 Block Highlights
-- **Structural elements** — Edges, plates, pergolas, beams, support columns, lattices
-- **Doors & Shutters** — Centered and standard doors, fancy railing shutters
-- **Water features** — Pools, faucets, water jets with 300+ shape configurations
-- **Furniture** — Chairs, couches, tables, footstools, canopy beds
-- **Lighting** — Candlesticks, lanterns, cressets, paper lamps, iron columns
-- **Displays** — Displayer blocks with a 9-slot inventory to showcase your items
-- **Decorative** — Flower pots, teapots, teacups, statues, gargoyles, chimneys, fireplaces
-
-### 🗂️ Builder-Friendly Inventory
+### Builder-Friendly Inventory
 The creative inventory features a **custom tabbing system** with subtabs and icons, keeping our large block choice neatly organized by category and culture, no more scrolling through endless lists.
 
-### 🔗 Connected Textures
+### Connected Textures
 Seamless connected textures via [Fusion](https://modrinth.com/mod/fusion-connected-textures), giving walls, columns, and structural elements a polished, continuous look (CTM for earlier versions)
 
 ---
 
-## 🤝 Compatibility
+## Compatibility
 
 | Mod | Status |
 |---|---|
@@ -72,27 +70,15 @@ Seamless connected textures via [Fusion](https://modrinth.com/mod/fusion-connect
 
 ---
 
-## 🌐 Translations
-
-Dawn of Time is available in **34 languages**, thanks to our amazing community contributors. Want to add or improve a translation? Open a PR with your updated `lang/<code>.json` file!
-
----
-
 ## Credits
 
-**Development, models and textures** by [Poulpinou](https://github.com/Poulpinou) & [TheGoldenWorld](https://github.com/TheGoldenWorld).
-
-**Additional models** — thank you to *mr_ch0c0late*, *Botmark*, *Instantnootles*, and *Lucthar* for their wonderful models.
-
-**Code support** — thank you to *Grand_Gibus*, *Aythya*, *Wonyu*, *Zadrac*, *Seynax*, and *Hahdrim* for their invaluable help.
-
-**Showcase builds** — thank you to *Knoxxturre* and *Jackie* for their gorgeous buildings (and their subtle sense of humor).
-
-**Our community** — thank you all for constantly helping us improve the mod. ❤️
-
-**Special thanks** to [Millénaire](https://www.millenaire.org/), the mod of our childhood that inspired this whole project.
-
-**Font** used in assets: [Minecrafter](https://www.dafont.com/minecrafter.font)
+- **Development, models and textures** by [Poulpinou](https://github.com/Poulpinou) & [TheGoldenWorld](https://github.com/TheGoldenWorld).
+- **Additional models:** thank you to *mr_ch0c0late*, *Botmark*, *Instantnootles*, and *Lucthar* for their wonderful models.
+- **Code support:** thank you to *Grand_Gibus*, *Aythya*, *Wonyu*, *Zadrac*, *Seynax*, and *Hahdrim* for their invaluable help.
+- **Showcase builds:** thank you to *Knoxxturre* and *Jackie* for their gorgeous buildings (and their subtle sense of humor).
+- **Our community:** thank you all for constantly helping us improve the mod. ❤️
+- **Special thanks:** to [Millénaire](https://www.millenaire.org/), the mod of our childhood that inspired this whole project.
+- **Font** used in assets: [Minecrafter](https://www.dafont.com/minecrafter.font)
 
 ---
 
@@ -104,7 +90,7 @@ If you enjoy Dawn of Time and want to help us keep building, consider supporting
 
 ---
 
-## 📄 License
+## License
 
 Dawn of Time is released under the [MIT License](LICENSE.md).
-© Poulpinou & TheGoldenWorld — DawnOfTimeMC team.
+© Poulpinou & TheGoldenWorld — Founder of Dawn of Time.

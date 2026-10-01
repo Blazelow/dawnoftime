@@ -1,20 +1,20 @@
-﻿{
-	"type": "minecraft:crafting_shaped",
-	"pattern": [
-		"iii",
-		"ixi",
-		"ixi"
-	],
-	"key": {
-		"i": {
-			"item": "dawnoftimebuilder:white_painted_stone"
-		},
-        "x": {
-            "item": "dawnoftimebuilder:red_painted_stone"
-        }
-	},
-	"result": {
-		"id": "dawnoftimebuilder:red_painted_white_spiral",
-		"count": 6
-	}
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "ixi",
+    "ixi"
+  ],
+  "key": {
+    "i": {
+      "item": "dawnoftimebuilder:white_painted_stone"
+    },
+    "x": {
+      "item": "dawnoftimebuilder:red_painted_stone"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "dawnoftimebuilder:red_painted_white_spiral"
+  }
 }

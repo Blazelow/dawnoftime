@@ -7,6 +7,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.player.Player;
@@ -98,6 +99,12 @@ public class ChairEntity extends Entity {
     @Override
     protected boolean canRide(final Entity entity) {
         return true;
+    }
+
+    @Override
+    protected @NotNull Vec3 getPassengerAttachmentPoint(@NotNull Entity passenger, @NotNull EntityDimensions dimensions, float partialTick) {
+        // 1.21 places the rider 0.6 below the attachment point (player vehicle attachment), while 1.20.1 used -0.35. This 0.25 offset keeps the 1.20.1 seat height.
+        return new Vec3(0.0D, 0.25D, 0.0D);
     }
 
     @Override

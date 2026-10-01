@@ -1,4 +1,4 @@
-﻿{
+{
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "ixi",
@@ -17,7 +17,7 @@
     }
   },
   "result": {
-    "id": "dawnoftimebuilder:moraq_mosaic_recess",
-    "count": 16
+    "count": 16,
+    "id": "dawnoftimebuilder:moraq_mosaic_recess"
   }
 }

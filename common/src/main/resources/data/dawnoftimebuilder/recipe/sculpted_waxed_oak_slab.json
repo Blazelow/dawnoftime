@@ -1,15 +1,15 @@
-﻿{
-	"type": "minecraft:crafting_shaped",
-	"pattern": [
-		"iii"
-	],
-	"key": {
-		"i": {
-			"item": "dawnoftimebuilder:sculpted_waxed_oak"
-		}
-	},
-	"result": {
-		"id": "dawnoftimebuilder:sculpted_waxed_oak_slab",
-		"count": 6
-	}
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:sculpted_waxed_oak"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "dawnoftimebuilder:sculpted_waxed_oak_slab"
+  }
 }
