@@ -9,6 +9,7 @@
     "MixinStateDefinitionBuilder"
   ],
   "client": [
+    "client.BedRendererMixin",
     "client.CreativeInventoryMixin"
   ],
   "server": [
