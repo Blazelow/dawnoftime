@@ -1,12 +1,13 @@
 package org.dawnoftime.dawnoftime.client.gui.elements.buttons;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.util.ARGB;
+import net.minecraft.client.renderer.RenderPipelines;
+import com.mojang.blaze3d.pipeline.RenderPipeline;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.dawnoftime.dawnoftime.client.gui.creative.CreativeInventoryCategories;
 import org.dawnoftime.dawnoftime.mixin.api.CreativeScreen;
 import org.jetbrains.annotations.NotNull;
@@ -19,7 +20,7 @@ import static org.dawnoftime.dawnoftime.DoTBCommon.MOD_ID;
 public class CategoryButton extends Button {
     private final CreativeScreen parent;
     private boolean selected;
-    private static final ResourceLocation[] BUTTON_ICONS = fillButtonIcons();
+    private static final Identifier[] BUTTON_ICONS = fillButtonIcons();
     private static final Tooltip[] BUTTON_TOOLTIPS = fillButtonTooltips();
     private final int index;
 
@@ -52,31 +53,19 @@ public class CategoryButton extends Button {
     }
 
     @Override
-    protected void renderWidget(@NotNull GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+    protected void renderContents(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
         if(this.active) {
-            PoseStack ps = pGuiGraphics.pose();
-
-            ps.pushPose();
-            RenderSystem.clearColor(1.0F, 1.0F, 1.0F, this.alpha);
-            RenderSystem.enableBlend();
-            pGuiGraphics.blit(CREATIVE_ICONS, this.getX() - 1, this.getY(), 0, (this.selected) ? 0 : 28, 31, 28);
-            RenderSystem.disableBlend();
-            ps.popPose();
-
-            ps.pushPose();
-            RenderSystem.clearColor(1.0F, 1.0F, 1.0F, this.alpha);
-            RenderSystem.enableBlend();
-            pGuiGraphics.blit(BUTTON_ICONS[this.getCategoryID()], this.getX() + ((this.selected) ? 6 : 9), this.getY() + 6, 0, 0, 0, 16, 16, 16, 16);
-            RenderSystem.disableBlend();
-            ps.popPose();
+            int color = ARGB.white(this.alpha);
+            guiGraphics.blit(RenderPipelines.GUI_TEXTURED, CREATIVE_ICONS, this.getX() - 1, this.getY(), 0.0F, (this.selected) ? 0.0F : 28.0F, 31, 28, 256, 256, color);
+            guiGraphics.blit(RenderPipelines.GUI_TEXTURED, BUTTON_ICONS[this.getCategoryID()], this.getX() + ((this.selected) ? 6 : 9), this.getY() + 6, 0.0F, 0.0F, 16, 16, 16, 16, color);
         }
     }
 
-    private static ResourceLocation[] fillButtonIcons() {
+    private static Identifier[] fillButtonIcons() {
         int number = CreativeInventoryCategories.values().length;
-        ResourceLocation[] table = new ResourceLocation[number];
+        Identifier[] table = new Identifier[number];
         for(int i = 0; i < number; i++) {
-            table[i] = ResourceLocation.fromNamespaceAndPath(MOD_ID, "textures/item/logo_" + CreativeInventoryCategories.values()[i].getName() + ".png");
+            table[i] = Identifier.fromNamespaceAndPath(MOD_ID, "textures/item/logo_" + CreativeInventoryCategories.values()[i].getName() + ".png");
         }
         return table;
     }
@@ -88,10 +77,5 @@ public class CategoryButton extends Button {
             tooltips[i] = Tooltip.create(Component.translatable("gui.dawnoftimebuilder." + CreativeInventoryCategories.values()[i].getName()));
         }
         return tooltips;
-    }
-
-    @Override
-    public @Nullable Tooltip getTooltip() {
-        return this.active ? super.getTooltip() : null;
     }
 }

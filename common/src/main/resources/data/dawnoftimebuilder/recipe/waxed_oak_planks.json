@@ -1,9 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    {
-      "item": "dawnoftimebuilder:waxed_oak_log_stripped"
-    }
+    "dawnoftimebuilder:waxed_oak_log_stripped"
   ],
   "result": {
     "count": 4,

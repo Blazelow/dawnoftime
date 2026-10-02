@@ -1,5 +1,8 @@
 package org.dawnoftime.dawnoftime.block.templates;
 
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.ScheduledTickAccess;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionResult;
@@ -8,7 +11,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -46,19 +48,19 @@ public class ConnectedVerticalBlock extends WaterloggedBlock {
     }
 
     @Override
-    public @NotNull BlockState updateShape(BlockState stateIn, final @NotNull Direction facing, final @NotNull BlockState facingState, final @NotNull LevelAccessor worldIn, final @NotNull BlockPos currentPos, final @NotNull BlockPos facingPos) {
-        stateIn = super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+    public @NotNull BlockState updateShape(BlockState stateIn, LevelReader worldIn, ScheduledTickAccess scheduledTickAccess, BlockPos currentPos, Direction facing, BlockPos facingPos, BlockState facingState, RandomSource randomSource) {
+        stateIn = super.updateShape(stateIn, worldIn, scheduledTickAccess, currentPos, facing, facingPos, facingState, randomSource);
         return facing.getAxis().isVertical() ? stateIn.setValue(ConnectedVerticalBlock.VERTICAL_CONNECTION, this.getColumnState(worldIn, currentPos, stateIn)) : stateIn;
     }
 
-    public BlockStatePropertiesAA.VerticalConnection getColumnState(final LevelAccessor worldIn, final BlockPos pos, final BlockState stateIn) {
+    public BlockStatePropertiesAA.VerticalConnection getColumnState(final LevelReader worldIn, final BlockPos pos, final BlockState stateIn) {
         if(this.isConnectible(stateIn, worldIn, pos.above(), Direction.DOWN)) {
             return this.isConnectible(stateIn, worldIn, pos.below(), Direction.UP) ? BlockStatePropertiesAA.VerticalConnection.BOTH : BlockStatePropertiesAA.VerticalConnection.ABOVE;
         }
         return this.isConnectible(stateIn, worldIn, pos.below(), Direction.UP) ? BlockStatePropertiesAA.VerticalConnection.UNDER : BlockStatePropertiesAA.VerticalConnection.NONE;
     }
 
-    public boolean isConnectible(final BlockState stateIn, final LevelAccessor worldIn, final BlockPos pos, final Direction faceToConnect) {
+    public boolean isConnectible(final BlockState stateIn, final LevelReader worldIn, final BlockPos pos, final Direction faceToConnect) {
         return worldIn.getBlockState(pos).getBlock() == this;
     }
 

@@ -6,9 +6,7 @@
     " i "
   ],
   "key": {
-    "i": {
-      "item": "dawnoftimebuilder:charred_spruce_planks"
-    }
+    "i": "dawnoftimebuilder:charred_spruce_planks"
   },
   "result": {
     "count": 6,

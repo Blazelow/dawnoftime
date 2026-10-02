@@ -5,12 +5,8 @@
     "ii"
   ],
   "key": {
-    "i": {
-      "item": "minecraft:stone_bricks"
-    },
-    "I": {
-      "item": "minecraft:stone_brick_slab"
-    }
+    "i": "minecraft:stone_bricks",
+    "I": "minecraft:stone_brick_slab"
   },
   "result": {
     "id": "dawnoftimebuilder:stone_bricks_chimney"

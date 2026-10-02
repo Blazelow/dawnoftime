@@ -5,9 +5,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:limestone_bricks"
-    }
+    "I": "dawnoftimebuilder:limestone_bricks"
   },
   "result": {
     "count": 6,

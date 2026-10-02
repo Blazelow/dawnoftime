@@ -5,12 +5,8 @@
     "IiI"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:charred_spruce_planks"
-    },
-    "i": {
-      "item": "minecraft:stick"
-    }
+    "I": "dawnoftimebuilder:charred_spruce_planks",
+    "i": "minecraft:stick"
   },
   "result": {
     "count": 6,

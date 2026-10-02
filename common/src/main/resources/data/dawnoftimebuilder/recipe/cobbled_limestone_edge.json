@@ -4,9 +4,7 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:cobbled_limestone_slab"
-    }
+    "I": "dawnoftimebuilder:cobbled_limestone_slab"
   },
   "result": {
     "count": 6,

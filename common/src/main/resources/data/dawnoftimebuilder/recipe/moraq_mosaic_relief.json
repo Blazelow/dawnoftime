@@ -6,15 +6,9 @@
     " x "
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:sandstone_bricks_edge"
-    },
-    "o": {
-      "item": "dawnoftimebuilder:clay_tile_blue"
-    },
-    "x": {
-      "item": "dawnoftimebuilder:clay_tile_cyan"
-    }
+    "I": "dawnoftimebuilder:sandstone_bricks_edge",
+    "o": "dawnoftimebuilder:clay_tile_blue",
+    "x": "dawnoftimebuilder:clay_tile_cyan"
   },
   "result": {
     "count": 6,

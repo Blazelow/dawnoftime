@@ -4,12 +4,8 @@
     "xIx"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:thatch_bamboo_slab"
-    },
-    "x": {
-      "item": "minecraft:white_wool"
-    }
+    "I": "dawnoftimebuilder:thatch_bamboo_slab",
+    "x": "minecraft:white_wool"
   },
   "result": {
     "count": 2,

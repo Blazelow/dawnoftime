@@ -1,10 +1,11 @@
 package org.dawnoftime.dawnoftime.util;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -135,7 +136,7 @@ public class Utils {
     }
 
     public static Potion getPotionByName(String name) {
-        return BuiltInRegistries.POTION.get(ResourceLocation.tryParse(name));
+        return BuiltInRegistries.POTION.get(Identifier.tryParse(name)).map(Holder.Reference::value).orElse(null);
     }
 
     public static @NotNull String getItemKeyAsString(Item item) {
@@ -155,7 +156,7 @@ public class Utils {
             final boolean isActivated = activation == 1;
             worldIn.setBlock(pos, stateIn.setValue(BlockStateProperties.LIT, isActivated), 10);
             worldIn.playSound(null, pos, isActivated ? SoundEvents.FIRE_AMBIENT : SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 1.0F, 1.0F);
-            if (worldIn.isClientSide) {
+            if (worldIn.isClientSide()) {
                 if (!isActivated) {
                     for (int i = 0; i < worldIn.random.nextInt(4) + 2; ++i) {
                         worldIn.addParticle(ParticleTypes.CLOUD, pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, worldIn.random.nextFloat() / 4.0F, 2.5E-5D, worldIn.random.nextFloat() / 4.0F);

@@ -5,12 +5,8 @@
     "xix"
   ],
   "key": {
-    "x": {
-      "item": "minecraft:stick"
-    },
-    "i": {
-      "item": "dawnoftimebuilder:marble"
-    }
+    "x": "minecraft:stick",
+    "i": "dawnoftimebuilder:marble"
   },
   "result": {
     "count": 6,

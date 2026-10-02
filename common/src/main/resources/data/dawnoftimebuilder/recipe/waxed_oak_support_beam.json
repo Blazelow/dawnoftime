@@ -5,12 +5,8 @@
     "III"
   ],
   "key": {
-    "i": {
-      "item": "dawnoftimebuilder:waxed_oak_support_slab"
-    },
-    "I": {
-      "item": "dawnoftimebuilder:waxed_oak_log_stripped"
-    }
+    "i": "dawnoftimebuilder:waxed_oak_support_slab",
+    "I": "dawnoftimebuilder:waxed_oak_log_stripped"
   },
   "result": {
     "count": 8,

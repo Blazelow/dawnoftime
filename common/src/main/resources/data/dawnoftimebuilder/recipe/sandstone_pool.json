@@ -6,9 +6,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:sandstone"
-    }
+    "I": "minecraft:sandstone"
   },
   "result": {
     "count": 6,

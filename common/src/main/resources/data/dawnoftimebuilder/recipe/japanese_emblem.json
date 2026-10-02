@@ -6,15 +6,9 @@
     "o o"
   ],
   "key": {
-    "b": {
-      "item": "dawnoftimebuilder:gray_roof_tiles_slab"
-    },
-    "i": {
-      "item": "minecraft:red_dye"
-    },
-    "o": {
-      "item": "minecraft:black_dye"
-    }
+    "b": "dawnoftimebuilder:gray_roof_tiles_slab",
+    "i": "minecraft:red_dye",
+    "o": "minecraft:black_dye"
   },
   "result": {
     "count": 4,

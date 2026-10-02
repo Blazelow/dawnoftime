@@ -5,9 +5,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:red_painted_log"
-    }
+    "I": "dawnoftimebuilder:red_painted_log"
   },
   "result": {
     "id": "dawnoftimebuilder:red_painted_roof_support"

@@ -4,9 +4,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:roofing_slates"
-    }
+    "I": "dawnoftimebuilder:roofing_slates"
   },
   "result": {
     "count": 6,

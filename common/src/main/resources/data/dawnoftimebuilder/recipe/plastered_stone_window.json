@@ -6,9 +6,7 @@
     "I I"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:plastered_stone"
-    }
+    "I": "dawnoftimebuilder:plastered_stone"
   },
   "result": {
     "count": 6,

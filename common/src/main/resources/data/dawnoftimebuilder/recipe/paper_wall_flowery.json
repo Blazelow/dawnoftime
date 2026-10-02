@@ -6,12 +6,8 @@
     "IiI"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:paper"
-    },
-    "i": {
-      "item": "minecraft:ink_sac"
-    }
+    "I": "minecraft:paper",
+    "i": "minecraft:ink_sac"
   },
   "result": {
     "count": 4,

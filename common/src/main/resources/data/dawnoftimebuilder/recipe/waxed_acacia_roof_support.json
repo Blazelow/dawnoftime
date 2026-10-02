@@ -5,9 +5,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:waxed_acacia_planks"
-    }
+    "I": "dawnoftimebuilder:waxed_acacia_planks"
   },
   "result": {
     "id": "dawnoftimebuilder:waxed_acacia_roof_support"

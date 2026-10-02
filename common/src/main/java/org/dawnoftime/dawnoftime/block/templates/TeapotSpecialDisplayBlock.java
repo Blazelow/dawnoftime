@@ -1,5 +1,7 @@
 package org.dawnoftime.dawnoftime.block.templates;
 
+import net.minecraft.core.Holder;
+import java.util.function.Consumer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -8,7 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -28,7 +30,7 @@ public class TeapotSpecialDisplayBlock extends SpecialDisplayBlock {
 
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource rand) {
-        if (!level.isClientSide) return;
+        if (!level.isClientSide()) return;
 
         BlockState state1 = level.getBlockState(pos.below());
         if (state1.getBlock() != DoTBBlocksRegistry.INSTANCE.IRORI_FIREPLACE.get()) return;
@@ -36,7 +38,7 @@ public class TeapotSpecialDisplayBlock extends SpecialDisplayBlock {
         if (state1.getValue(FireplaceBlock.LIT) && rand.nextInt(5) == 0) {
             SimpleParticleType particle;
             if (Services.PLATFORM.isModLoaded("farmersdelight"))
-                particle = (SimpleParticleType) BuiltInRegistries.PARTICLE_TYPE.get(ResourceLocation.tryParse("farmersdelight:steam"));
+                particle = (SimpleParticleType) BuiltInRegistries.PARTICLE_TYPE.get(Identifier.tryParse("farmersdelight:steam")).map(Holder.Reference::value).orElse(null);
             else
                 particle = ParticleTypes.CAMPFIRE_COSY_SMOKE;
 
@@ -46,9 +48,8 @@ public class TeapotSpecialDisplayBlock extends SpecialDisplayBlock {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, Item.TooltipContext context,
-            @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, Consumer<Component> tooltip, TooltipFlag flag) {
         super.appendHoverText(stack, context, tooltip, flag);
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.teapot"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.teapot"));
     }
 }

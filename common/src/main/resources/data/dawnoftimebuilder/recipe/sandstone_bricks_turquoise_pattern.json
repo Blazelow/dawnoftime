@@ -6,12 +6,8 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:sandstone_bricks"
-    },
-    "o": {
-      "item": "dawnoftimebuilder:clay_tile_cyan"
-    }
+    "I": "dawnoftimebuilder:sandstone_bricks",
+    "o": "dawnoftimebuilder:clay_tile_cyan"
   },
   "result": {
     "count": 7,

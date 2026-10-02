@@ -1,5 +1,6 @@
 package org.dawnoftime.dawnoftime.block.japanese;
 
+import java.util.function.Consumer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -75,9 +76,8 @@ public class SpruceLowTableBlock extends DisplayerBlock {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, Item.TooltipContext context,
-            @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, Consumer<Component> tooltip, TooltipFlag flag) {
         super.appendHoverText(stack, context, tooltip, flag);
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.table"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.table"));
     }
 }

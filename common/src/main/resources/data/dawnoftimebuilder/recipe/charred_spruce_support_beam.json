@@ -5,12 +5,8 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:charred_spruce_log_stripped"
-    },
-    "i": {
-      "item": "dawnoftimebuilder:charred_spruce_support_slab"
-    }
+    "I": "dawnoftimebuilder:charred_spruce_log_stripped",
+    "i": "dawnoftimebuilder:charred_spruce_support_slab"
   },
   "result": {
     "count": 8,

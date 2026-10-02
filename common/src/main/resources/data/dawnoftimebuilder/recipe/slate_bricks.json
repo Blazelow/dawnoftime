@@ -6,12 +6,8 @@
     "IiI"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:diorite"
-    },
-    "i": {
-      "item": "minecraft:packed_mud"
-    }
+    "I": "minecraft:diorite",
+    "i": "minecraft:packed_mud"
   },
   "result": {
     "count": 12,

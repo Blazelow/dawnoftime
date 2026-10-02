@@ -4,9 +4,7 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:ochre_roof_tiles_slab"
-    }
+    "I": "dawnoftimebuilder:ochre_roof_tiles_slab"
   },
   "result": {
     "count": 6,

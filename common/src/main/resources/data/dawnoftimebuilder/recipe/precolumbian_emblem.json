@@ -6,15 +6,9 @@
     "bib"
   ],
   "key": {
-    "b": {
-      "item": "dawnoftimebuilder:plastered_stone"
-    },
-    "i": {
-      "item": "dawnoftimebuilder:red_plastered_stone"
-    },
-    "x": {
-      "item": "minecraft:gold_nugget"
-    }
+    "b": "dawnoftimebuilder:plastered_stone",
+    "i": "dawnoftimebuilder:red_plastered_stone",
+    "x": "minecraft:gold_nugget"
   },
   "result": {
     "count": 4,

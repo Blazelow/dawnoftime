@@ -4,9 +4,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:charred_spruce_boards"
-    }
+    "I": "dawnoftimebuilder:charred_spruce_boards"
   },
   "result": {
     "count": 6,

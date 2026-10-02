@@ -6,12 +6,8 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:sandstone"
-    },
-    "x": {
-      "item": "minecraft:black_dye"
-    }
+    "I": "minecraft:sandstone",
+    "x": "minecraft:black_dye"
   },
   "result": {
     "count": 9,

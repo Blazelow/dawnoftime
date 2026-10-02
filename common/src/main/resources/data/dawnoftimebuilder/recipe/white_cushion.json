@@ -6,12 +6,8 @@
     "I"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:white_carpet"
-    },
-    "i": {
-      "item": "minecraft:feather"
-    }
+    "I": "minecraft:white_carpet",
+    "i": "minecraft:feather"
   },
   "result": {
     "id": "dawnoftimebuilder:white_cushion"

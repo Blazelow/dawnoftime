@@ -1,5 +1,6 @@
 package org.dawnoftime.dawnoftime.block.templates;
 
+import java.util.function.Consumer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -14,7 +15,7 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.dawnoftime.dawnoftime.block.IBlockChain;
@@ -26,7 +27,7 @@ import javax.annotation.Nullable;
 
 public class LanternBlock extends SpecialDisplayBlock implements IBlockChain {
 
-    public static final DirectionProperty FACING = BlockStateProperties.FACING;
+    public static final EnumProperty<Direction> FACING = BlockStateProperties.FACING;
 
     public LanternBlock(Properties properties, VoxelShape[] shapes) {
         super(properties.lightLevel((state) -> 15), shapes);
@@ -85,9 +86,8 @@ public class LanternBlock extends SpecialDisplayBlock implements IBlockChain {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, Item.TooltipContext context,
-            @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, Consumer<Component> tooltip, TooltipFlag flag) {
         super.appendHoverText(stack, context, tooltip, flag);
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.lantern"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.lantern"));
     }
 }

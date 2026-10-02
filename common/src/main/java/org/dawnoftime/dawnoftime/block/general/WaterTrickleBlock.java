@@ -1,5 +1,7 @@
 package org.dawnoftime.dawnoftime.block.general;
 
+import net.minecraft.world.level.ScheduledTickAccess;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -12,7 +14,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LiquidBlockContainer;
 import net.minecraft.world.level.block.state.BlockState;
@@ -59,17 +60,17 @@ public abstract class WaterTrickleBlock extends BlockDoT {
     }
 
     @Override
-    public BlockState updateShape(final BlockState stateIn, final Direction directionIn, final BlockState facingStateIn, final LevelAccessor worldIn, final BlockPos currentPosIn, final BlockPos facingPosIn) {
+    public BlockState updateShape(BlockState stateIn, LevelReader worldIn, ScheduledTickAccess scheduledTickAccess, BlockPos currentPosIn, Direction directionIn, BlockPos facingPosIn, BlockState facingStateIn, RandomSource randomSource) {
         // If a block above or under changed, the water trickle is set UNSTABLE. Unstable water trickles are updated on the next randomTick.
         if (directionIn == Direction.UP && facingStateIn.getBlock() instanceof WaterTrickleBlock) {
             if (!worldIn.isClientSide()) {
-                (worldIn).scheduleTick(currentPosIn, this, 5);
+                scheduledTickAccess.scheduleTick(currentPosIn, this, 5);
             }
             return stateIn.setValue(BlockStateProperties.UNSTABLE, true);
         }
         if (directionIn == Direction.DOWN && worldIn instanceof Level) {
             if (!worldIn.isClientSide()) {
-                (worldIn).scheduleTick(currentPosIn, this, 5);
+                scheduledTickAccess.scheduleTick(currentPosIn, this, 5);
             }
             return stateIn.setValue(BlockStatePropertiesAA.WATER_TRICKLE_END, this.getWaterTrickleEnd((Level) worldIn, facingPosIn, facingStateIn)).setValue(BlockStateProperties.UNSTABLE, true);
         }
@@ -212,11 +213,11 @@ public abstract class WaterTrickleBlock extends BlockDoT {
     private void spawnLimitedParticles(final Level worldIn, final BlockPos pos, final boolean isOn, final RandomSource rand, final double xOffset, final double zOffset) {
         if (isOn) {
             double offset = 0.75D;
-            worldIn.addParticle(ParticleTypes.BUBBLE_POP, true, pos.getX() + xOffset + (rand.nextDouble() * offset - offset / 2.0D), pos.getY() + 0.1D, pos.getZ() + zOffset + (rand.nextDouble() * offset - offset / 2.0D), 0.0125D, 0.075D,
+            worldIn.addParticle(ParticleTypes.BUBBLE_POP, false, true, pos.getX() + xOffset + (rand.nextDouble() * offset - offset / 2.0D), pos.getY() + 0.1D, pos.getZ() + zOffset + (rand.nextDouble() * offset - offset / 2.0D), 0.0125D, 0.075D,
                     0.0125D);
 
             offset = 0.60D;
-            worldIn.addParticle(ParticleTypes.CLOUD, true, pos.getX() + xOffset + (rand.nextDouble() * offset - offset / 2.0D), pos.getY() + 0.0D, pos.getZ() + zOffset + (rand.nextDouble() * offset - offset / 2.0D), 0.0005D, 0.010D,
+            worldIn.addParticle(ParticleTypes.CLOUD, false, true, pos.getX() + xOffset + (rand.nextDouble() * offset - offset / 2.0D), pos.getY() + 0.0D, pos.getZ() + zOffset + (rand.nextDouble() * offset - offset / 2.0D), 0.0005D, 0.010D,
                     0.0005D);
         }
     }
@@ -226,11 +227,11 @@ public abstract class WaterTrickleBlock extends BlockDoT {
             double offset;
             for (int i = 0; i < 4; i++) {
                 offset = 0.75D;
-                worldIn.addParticle(ParticleTypes.BUBBLE_POP, true, pos.getX() + xOffset + (rand.nextDouble() * offset - offset / 2.0D), pos.getY() + 0.1D, pos.getZ() + zOffset + (rand.nextDouble() * offset - offset / 2.0D), 0.0125D,
+                worldIn.addParticle(ParticleTypes.BUBBLE_POP, false, true, pos.getX() + xOffset + (rand.nextDouble() * offset - offset / 2.0D), pos.getY() + 0.1D, pos.getZ() + zOffset + (rand.nextDouble() * offset - offset / 2.0D), 0.0125D,
                         0.075D, 0.0125D);
 
                 offset = 0.60D;
-                worldIn.addParticle(ParticleTypes.CLOUD, true, pos.getX() + xOffset + (rand.nextDouble() * offset - offset / 2.0D), pos.getY() + 0.0D, pos.getZ() + zOffset + (rand.nextDouble() * offset - offset / 2.0D), 0.0005D, 0.010D,
+                worldIn.addParticle(ParticleTypes.CLOUD, false, true, pos.getX() + xOffset + (rand.nextDouble() * offset - offset / 2.0D), pos.getY() + 0.0D, pos.getZ() + zOffset + (rand.nextDouble() * offset - offset / 2.0D), 0.0005D, 0.010D,
                         0.0005D);
             }
         }
@@ -269,7 +270,7 @@ public abstract class WaterTrickleBlock extends BlockDoT {
     }
 
     @Override
-    public int getLightBlock(final BlockState p_200011_1_In, final BlockGetter p_200011_2_In, final BlockPos p_200011_3_In) {
+    public int getLightBlock(final BlockState p_200011_1_In) {
         return 1;
     }
 
@@ -279,7 +280,7 @@ public abstract class WaterTrickleBlock extends BlockDoT {
     }
 
     @Override
-    public VoxelShape getOcclusionShape(final BlockState p_196247_1_In, final BlockGetter p_196247_2_In, final BlockPos p_196247_3_In) {
+    public VoxelShape getOcclusionShape(final BlockState p_196247_1_In) {
         return Shapes.empty();
     }
 
@@ -289,7 +290,7 @@ public abstract class WaterTrickleBlock extends BlockDoT {
     }
 
     @Override
-    public boolean propagatesSkylightDown(final BlockState p_200123_1_In, final BlockGetter p_200123_2_In, final BlockPos p_200123_3_In) {
+    public boolean propagatesSkylightDown(final BlockState p_200123_1_In) {
         return true;
     }
 }

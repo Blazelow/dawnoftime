@@ -5,12 +5,8 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:red_painted_log"
-    },
-    "i": {
-      "item": "minecraft:stick"
-    }
+    "I": "dawnoftimebuilder:red_painted_log",
+    "i": "minecraft:stick"
   },
   "result": {
     "count": 6,

@@ -5,12 +5,8 @@
     "Ii"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:terracotta"
-    },
-    "i": {
-      "item": "minecraft:white_dye"
-    }
+    "I": "minecraft:terracotta",
+    "i": "minecraft:white_dye"
   },
   "result": {
     "count": 8,

@@ -6,12 +6,8 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:red_painted_log"
-    },
-    "i": {
-      "item": "dawnoftimebuilder:white_wattle_and_daub"
-    }
+    "I": "dawnoftimebuilder:red_painted_log",
+    "i": "dawnoftimebuilder:white_wattle_and_daub"
   },
   "result": {
     "count": 6,

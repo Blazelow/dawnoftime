@@ -4,9 +4,7 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:thatch_wheat_slab"
-    }
+    "I": "dawnoftimebuilder:thatch_wheat_slab"
   },
   "result": {
     "count": 6,

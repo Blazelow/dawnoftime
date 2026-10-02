@@ -1,12 +1,13 @@
 package org.dawnoftime.dawnoftime.block.templates;
 
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.ScheduledTickAccess;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
@@ -135,13 +136,13 @@ public class CappedWallBlock extends Block implements SimpleWaterloggedBlock {
         return this.updateShape(world, state, posAbove, blockstate4, connectsSouth, connectsWest, connectsNorth, connectsEast);
     }
 
-    public BlockState updateShape(BlockState state, Direction direction, BlockState p_196271_3_, LevelAccessor world, BlockPos pos, BlockPos p_196271_6_) {
+    public BlockState updateShape(BlockState state, LevelReader world, ScheduledTickAccess scheduledTickAccess, BlockPos pos, Direction direction, BlockPos p_196271_6_, BlockState p_196271_3_, RandomSource randomSource) {
         if(state.getValue(WATERLOGGED)) {
-            world.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
+            scheduledTickAccess.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
         }
 
         if(direction == Direction.DOWN) {
-            return super.updateShape(state, direction, p_196271_3_, world, pos, p_196271_6_);
+            return super.updateShape(state, world, scheduledTickAccess, pos, direction, p_196271_6_, p_196271_3_, randomSource);
         } else {
             return direction == Direction.UP ? this.topUpdate(world, state, p_196271_6_, p_196271_3_) : this.sideUpdate(world, pos, state, p_196271_6_, p_196271_3_, direction);
         }
@@ -227,7 +228,7 @@ public class CappedWallBlock extends Block implements SimpleWaterloggedBlock {
         return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
-    public boolean propagatesSkylightDown(BlockState state, BlockGetter world, BlockPos pos) {
+    public boolean propagatesSkylightDown(BlockState state) {
         return !state.getValue(WATERLOGGED);
     }
 

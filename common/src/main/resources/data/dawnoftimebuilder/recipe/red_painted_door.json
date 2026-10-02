@@ -6,12 +6,8 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:iron_ingot"
-    },
-    "i": {
-      "item": "dawnoftimebuilder:red_painted_log"
-    }
+    "I": "minecraft:iron_ingot",
+    "i": "dawnoftimebuilder:red_painted_log"
   },
   "result": {
     "count": 6,

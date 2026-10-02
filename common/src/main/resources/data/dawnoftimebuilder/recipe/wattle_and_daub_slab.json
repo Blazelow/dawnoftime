@@ -4,9 +4,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:wattle_and_daub"
-    }
+    "I": "dawnoftimebuilder:wattle_and_daub"
   },
   "result": {
     "count": 6,

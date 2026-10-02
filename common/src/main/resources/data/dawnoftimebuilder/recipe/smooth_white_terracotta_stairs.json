@@ -6,9 +6,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:smooth_white_terracotta"
-    }
+    "I": "dawnoftimebuilder:smooth_white_terracotta"
   },
   "result": {
     "count": 6,

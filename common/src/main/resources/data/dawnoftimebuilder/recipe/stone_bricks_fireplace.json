@@ -6,12 +6,8 @@
     " I "
   ],
   "key": {
-    "I": {
-      "item": "minecraft:stone_bricks"
-    },
-    "o": {
-      "item": "dawnoftimebuilder:fireplace"
-    }
+    "I": "minecraft:stone_bricks",
+    "o": "dawnoftimebuilder:fireplace"
   },
   "result": {
     "id": "dawnoftimebuilder:stone_bricks_fireplace"

@@ -6,12 +6,8 @@
     "#W#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:stick"
-    },
-    "W": {
-      "item": "dawnoftimebuilder:waxed_oak_planks"
-    }
+    "#": "minecraft:stick",
+    "W": "dawnoftimebuilder:waxed_oak_planks"
   },
   "result": {
     "id": "dawnoftimebuilder:waxed_oak_fence_gate"

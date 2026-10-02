@@ -6,12 +6,8 @@
     "IiI"
   ],
   "key": {
-    "i": {
-      "item": "dawnoftimebuilder:blue_painted_stone"
-    },
-    "I": {
-      "item": "dawnoftimebuilder:red_painted_stone"
-    }
+    "i": "dawnoftimebuilder:blue_painted_stone",
+    "I": "dawnoftimebuilder:red_painted_stone"
   },
   "result": {
     "count": 6,

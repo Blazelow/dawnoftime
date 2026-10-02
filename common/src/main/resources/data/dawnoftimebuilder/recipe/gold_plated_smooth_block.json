@@ -7,19 +7,11 @@
   ],
   "key": {
     "x": [
-      {
-        "item": "minecraft:sandstone"
-      },
-      {
-        "item": "minecraft:stone"
-      },
-      {
-        "item": "minecraft:cobblestone"
-      }
+      "minecraft:sandstone",
+      "minecraft:stone",
+      "minecraft:cobblestone"
     ],
-    "o": {
-      "item": "minecraft:gold_nugget"
-    }
+    "o": "minecraft:gold_nugget"
   },
   "result": {
     "id": "dawnoftimebuilder:gold_plated_smooth_block"

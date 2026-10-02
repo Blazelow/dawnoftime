@@ -6,12 +6,8 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:wrought_iron_fence"
-    },
-    "x": {
-      "item": "minecraft:black_dye"
-    }
+    "I": "dawnoftimebuilder:wrought_iron_fence",
+    "x": "minecraft:black_dye"
   },
   "result": {
     "count": 8,

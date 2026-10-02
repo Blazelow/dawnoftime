@@ -6,15 +6,9 @@
     "o o"
   ],
   "key": {
-    "o": {
-      "item": "minecraft:stick"
-    },
-    "O": {
-      "item": "minecraft:torch"
-    },
-    "I": {
-      "item": "minecraft:paper"
-    }
+    "o": "minecraft:stick",
+    "O": "minecraft:torch",
+    "I": "minecraft:paper"
   },
   "result": {
     "count": 6,

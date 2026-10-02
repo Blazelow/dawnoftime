@@ -6,18 +6,10 @@
     "bbb"
   ],
   "key": {
-    "b": {
-      "item": "minecraft:stone"
-    },
-    "i": {
-      "item": "dawnoftimebuilder:waxed_acacia_stairs"
-    },
-    "o": {
-      "item": "minecraft:gold_nugget"
-    },
-    "x": {
-      "item": "minecraft:red_dye"
-    }
+    "b": "minecraft:stone",
+    "i": "dawnoftimebuilder:waxed_acacia_stairs",
+    "o": "minecraft:gold_nugget",
+    "x": "minecraft:red_dye"
   },
   "result": {
     "count": 4,

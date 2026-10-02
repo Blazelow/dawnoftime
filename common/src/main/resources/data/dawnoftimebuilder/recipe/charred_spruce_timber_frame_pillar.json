@@ -6,12 +6,8 @@
     "IiI"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:charred_spruce_planks"
-    },
-    "i": {
-      "item": "dawnoftimebuilder:white_wattle_and_daub"
-    }
+    "I": "dawnoftimebuilder:charred_spruce_planks",
+    "i": "dawnoftimebuilder:white_wattle_and_daub"
   },
   "result": {
     "count": 6,

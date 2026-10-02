@@ -6,18 +6,10 @@
     "obo"
   ],
   "key": {
-    "b": {
-      "item": "dawnoftimebuilder:stone_bricks_masonry"
-    },
-    "i": {
-      "item": "minecraft:feather"
-    },
-    "o": {
-      "item": "minecraft:red_dye"
-    },
-    "x": {
-      "item": "minecraft:gold_nugget"
-    }
+    "b": "dawnoftimebuilder:stone_bricks_masonry",
+    "i": "minecraft:feather",
+    "o": "minecraft:red_dye",
+    "x": "minecraft:gold_nugget"
   },
   "result": {
     "count": 4,

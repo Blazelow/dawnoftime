@@ -4,9 +4,7 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:marble_slab"
-    }
+    "I": "dawnoftimebuilder:marble_slab"
   },
   "result": {
     "count": 6,

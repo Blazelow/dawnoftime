@@ -6,12 +6,8 @@
     " i "
   ],
   "key": {
-    "I": {
-      "item": "minecraft:stone"
-    },
-    "i": {
-      "item": "minecraft:green_dye"
-    }
+    "I": "minecraft:stone",
+    "i": "minecraft:green_dye"
   },
   "result": {
     "count": 8,

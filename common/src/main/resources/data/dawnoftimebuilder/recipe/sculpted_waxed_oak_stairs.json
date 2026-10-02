@@ -6,9 +6,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:sculpted_waxed_oak"
-    }
+    "I": "dawnoftimebuilder:sculpted_waxed_oak"
   },
   "result": {
     "count": 6,

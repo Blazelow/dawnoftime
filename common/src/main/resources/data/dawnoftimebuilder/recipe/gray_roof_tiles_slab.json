@@ -4,9 +4,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:gray_roof_tiles"
-    }
+    "I": "dawnoftimebuilder:gray_roof_tiles"
   },
   "result": {
     "count": 6,

@@ -2,9 +2,12 @@ package org.dawnoftime.dawnoftime.entity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityDimensions;
@@ -42,7 +45,7 @@ public class ChairEntity extends Entity {
             if(seats.isEmpty()) {
                 final ChairEntity seat = new ChairEntity(level, pos, direction, pixelsXOffset, pixelsYOffset, pixelsZOffset);
                 level.addFreshEntity(seat);
-                if(player.startRiding(seat, false)) {
+                if(player.startRiding(seat)) {
                     return InteractionResult.SUCCESS;
                 }
             }
@@ -72,12 +75,17 @@ public class ChairEntity extends Entity {
     }
 
     @Override
-    protected void readAdditionalSaveData(final @NotNull CompoundTag p_70037_1_) {
+    public boolean hurtServer(@NotNull ServerLevel level, @NotNull DamageSource source, float amount) {
+        return false;
+    }
+
+    @Override
+    protected void readAdditionalSaveData(final @NotNull ValueInput input) {
 
     }
 
     @Override
-    protected void addAdditionalSaveData(final @NotNull CompoundTag p_213281_1_) {
+    protected void addAdditionalSaveData(final @NotNull ValueOutput output) {
 
     }
 

@@ -5,12 +5,8 @@
     "IiI"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:lattice_glass_pane"
-    },
-    "i": {
-      "item": "minecraft:stone_bricks"
-    }
+    "I": "dawnoftimebuilder:lattice_glass_pane",
+    "i": "minecraft:stone_bricks"
   },
   "result": {
     "count": 16,

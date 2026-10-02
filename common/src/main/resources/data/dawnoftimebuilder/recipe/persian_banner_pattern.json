@@ -1,12 +1,8 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    {
-      "item": "minecraft:paper"
-    },
-    {
-      "item": "dawnoftimebuilder:persian_emblem"
-    }
+    "minecraft:paper",
+    "dawnoftimebuilder:persian_emblem"
   ],
   "result": {
     "count": 1,

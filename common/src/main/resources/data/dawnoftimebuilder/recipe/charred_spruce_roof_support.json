@@ -5,9 +5,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:charred_spruce_planks"
-    }
+    "I": "dawnoftimebuilder:charred_spruce_planks"
   },
   "result": {
     "id": "dawnoftimebuilder:charred_spruce_roof_support"

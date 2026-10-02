@@ -1,6 +1,8 @@
 package org.dawnoftime.dawnoftime.block.french;
 
 import net.minecraft.network.chat.Component;
+import java.util.function.Consumer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -16,10 +18,9 @@ public class StoneBricksMachicolationBlock extends ConnectedHorizontalBlock {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, Item.TooltipContext context,
-            @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, Consumer<Component> tooltip, TooltipFlag flag) {
         super.appendHoverText(stack, context, tooltip, flag);
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.stone_bricks_defense_label"));
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.stone_bricks_defense"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.stone_bricks_defense_label"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.stone_bricks_defense"));
     }
 }

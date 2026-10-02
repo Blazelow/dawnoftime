@@ -20,7 +20,6 @@
         "dawnoftimebuilder:cobbled_limestone_edge",
         "dawnoftimebuilder:covered_sandstone_wall",
         "dawnoftimebuilder:flat_roof_tiles_chimney",
-
         "dawnoftimebuilder:cut_sandstone_bot_ochre_roof_tiles_top",
         "dawnoftimebuilder:cut_sandstone_edge",
         "dawnoftimebuilder:cut_sandstone_plate",
@@ -78,7 +77,6 @@
         "dawnoftimebuilder:charred_spruce_glass_pane",
         "dawnoftimebuilder:charred_spruce_window",
         "dawnoftimebuilder:green_painted_window",
-
         "dawnoftimebuilder:limestone_baluster",
         "dawnoftimebuilder:limestone_bricks",
         "dawnoftimebuilder:limestone_bricks_edge",
@@ -111,15 +109,11 @@
         "dawnoftimebuilder:slate_bricks_edge",
         "dawnoftimebuilder:slate_bricks_wall",
         "dawnoftimebuilder:slate_bricks_chimney",
-
         "dawnoftimebuilder:green_roof_tiles",
         "dawnoftimebuilder:green_roof_tiles_edge",
         "dawnoftimebuilder:green_roof_tiles_plate",
         "dawnoftimebuilder:green_roof_tiles_slab",
         "dawnoftimebuilder:green_roof_tiles_stairs",
-
-
-
         "dawnoftimebuilder:smooth_black_terracotta",
         "dawnoftimebuilder:smooth_black_terracotta_stairs",
         "dawnoftimebuilder:smooth_black_terracotta_plate",
@@ -205,12 +199,10 @@
         "dawnoftimebuilder:red_ornamented_plastered_stone",
         "dawnoftimebuilder:red_ornamented_plastered_stone_frieze",
         "dawnoftimebuilder:red_painted_crenelation",
-
         "dawnoftimebuilder:white_painted_lattice",
         "dawnoftimebuilder:red_painted_lattice",
         "dawnoftimebuilder:blue_wave_template",
         "dawnoftimebuilder:white_spiral_template",
-
         "dawnoftimebuilder:puuc_limestone",
         "dawnoftimebuilder:puuc_limestone_stairs",
         "dawnoftimebuilder:puuc_limestone_slab",
@@ -238,13 +230,11 @@
         "dawnoftimebuilder:red_painted_white_spiral",
         "dawnoftimebuilder:red_painted_blue_round",
         "dawnoftimebuilder:blue_round_template",
-
         "dawnoftimebuilder:red_painted_puuc_limestone",
         "dawnoftimebuilder:cobblestone_plate",
         "dawnoftimebuilder:cobblestone_edge",
         "dawnoftimebuilder:stone_plate",
         "dawnoftimebuilder:stone_edge",
-
         "dawnoftimebuilder:red_plastered_stone",
         "dawnoftimebuilder:red_plastered_stone_edge",
         "dawnoftimebuilder:red_plastered_stone_frieze",
@@ -326,11 +316,20 @@
         "dawnoftimebuilder:orange_terracotta_slab",
         "dawnoftimebuilder:orange_terracotta_plate",
         "dawnoftimebuilder:orange_terracotta_edge",
-
         "dawnoftimebuilder:red_terracotta_wall",
         "dawnoftimebuilder:water_flowing_trickle",
         "dawnoftimebuilder:water_source_trickle",
         "dawnoftimebuilder:white_little_flag",
-        "dawnoftimebuilder:wrought_iron_fence"
+        "dawnoftimebuilder:wrought_iron_fence",
+        "dawnoftimebuilder:blue_plastered_stone_column",
+        "dawnoftimebuilder:blue_plastered_stone_window",
+        "dawnoftimebuilder:green_painted_diamond_window",
+        "dawnoftimebuilder:green_painted_straight_window",
+        "dawnoftimebuilder:green_plastered_stone_column",
+        "dawnoftimebuilder:green_plastered_stone_window",
+        "dawnoftimebuilder:persian_carpet_delicate_red",
+        "dawnoftimebuilder:persian_carpet_red",
+        "dawnoftimebuilder:yellow_plastered_stone_column",
+        "dawnoftimebuilder:yellow_plastered_stone_window"
     ]
 }

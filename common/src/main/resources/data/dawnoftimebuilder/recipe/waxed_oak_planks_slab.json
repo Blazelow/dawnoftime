@@ -4,9 +4,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:waxed_oak_planks"
-    }
+    "I": "dawnoftimebuilder:waxed_oak_planks"
   },
   "result": {
     "count": 6,

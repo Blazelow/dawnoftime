@@ -1,5 +1,6 @@
 package org.dawnoftime.dawnoftime.block.templates;
 
+import java.util.function.Consumer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -47,10 +48,9 @@ public class FoldingScreenBlock extends ConnectedVerticalBlock {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, Item.TooltipContext context,
-            @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, Consumer<Component> tooltip, TooltipFlag flag) {
         super.appendHoverText(stack, context, tooltip, flag);
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.column_label"));
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.column"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.column_label"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.column"));
     }
 }

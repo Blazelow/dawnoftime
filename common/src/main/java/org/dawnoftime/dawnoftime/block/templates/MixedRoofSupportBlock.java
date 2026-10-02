@@ -1,5 +1,13 @@
 package org.dawnoftime.dawnoftime.block.templates;
 
+import org.dawnoftime.dawnoftime.registry.RegistryIds;
+import net.minecraft.world.level.LevelAccessor;
+import org.dawnoftime.dawnoftime.item.templates.DoTBBlockItem;
+import java.util.function.Consumer;
+import org.dawnoftime.dawnoftime.block.IBlockTooltip;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -15,7 +23,6 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
@@ -31,8 +38,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.function.Supplier;
 
-public class MixedRoofSupportBlock extends SlabBlockDoT {
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+public class MixedRoofSupportBlock extends SlabBlockDoT implements IBlockTooltip  {
+    public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final EnumProperty<StairsShape> SHAPE = BlockStateProperties.STAIRS_SHAPE;
     private final Supplier<Block> roofSlabBlockSupplier;
 
@@ -100,7 +107,7 @@ public class MixedRoofSupportBlock extends SlabBlockDoT {
     }
 
     public static Item getBlockItem(MixedRoofSupportBlock block) {
-        return new BlockItem(block, new Item.Properties()) {
+        return new DoTBBlockItem(block, RegistryIds.blockItemProperties()) {
             @Override
             public InteractionResult place(final BlockPlaceContext context) {
                 final Direction facing = context.getClickedFace();
@@ -148,9 +155,8 @@ public class MixedRoofSupportBlock extends SlabBlockDoT {
     }
 
     @Override
-    public BlockState updateShape(BlockState stateIn, final Direction facing, final BlockState facingState,
-                                  final LevelAccessor worldIn, final BlockPos currentPos, final BlockPos facingPos) {
-        stateIn = super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+    public BlockState updateShape(BlockState stateIn, LevelReader worldIn, ScheduledTickAccess scheduledTickAccess, BlockPos currentPos, Direction facing, BlockPos facingPos, BlockState facingState, RandomSource randomSource) {
+        stateIn = super.updateShape(stateIn, worldIn, scheduledTickAccess, currentPos, facing, facingPos, facingState, randomSource);
         return facing.getAxis().isHorizontal()
                 ? stateIn.setValue(MixedRoofSupportBlock.SHAPE, this.getShapeProperty(stateIn, worldIn, currentPos))
                 : stateIn;
@@ -210,7 +216,7 @@ public class MixedRoofSupportBlock extends SlabBlockDoT {
     }
 
     @Override
-    public boolean canPlaceLiquid(@Nullable Player player, BlockGetter level, BlockPos pos, BlockState state, Fluid fluid) {
+    public boolean canPlaceLiquid(@Nullable LivingEntity player, BlockGetter level, BlockPos pos, BlockState state, Fluid fluid) {
         return !state.getValue(BlockStateProperties.WATERLOGGED) && fluid == Fluids.WATER;
     }
 
@@ -271,9 +277,7 @@ public class MixedRoofSupportBlock extends SlabBlockDoT {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, Item.TooltipContext context,
-            @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
-        super.appendHoverText(stack, context, tooltip, flag);
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.mixed_roof_support"));
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, Consumer<Component> tooltip, TooltipFlag flag) {
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.mixed_roof_support"));
     }
 }

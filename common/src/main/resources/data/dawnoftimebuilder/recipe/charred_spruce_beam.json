@@ -5,12 +5,8 @@
     "i"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:charred_spruce_log_stripped"
-    },
-    "i": {
-      "item": "minecraft:cobblestone"
-    }
+    "I": "dawnoftimebuilder:charred_spruce_log_stripped",
+    "i": "minecraft:cobblestone"
   },
   "result": {
     "count": 4,

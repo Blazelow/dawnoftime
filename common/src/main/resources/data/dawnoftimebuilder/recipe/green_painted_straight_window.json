@@ -4,9 +4,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:green_painted_window"
-    }
+    "I": "dawnoftimebuilder:green_painted_window"
   },
   "result": {
     "count": 8,

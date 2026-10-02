@@ -6,12 +6,8 @@
     "i i"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:waxed_oak_planks_slab"
-    },
-    "i": {
-      "item": "minecraft:stick"
-    }
+    "I": "dawnoftimebuilder:waxed_oak_planks_slab",
+    "i": "minecraft:stick"
   },
   "result": {
     "id": "dawnoftimebuilder:waxed_oak_table"

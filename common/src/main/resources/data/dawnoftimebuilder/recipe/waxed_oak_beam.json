@@ -5,12 +5,8 @@
     "I"
   ],
   "key": {
-    "i": {
-      "item": "dawnoftimebuilder:waxed_oak_log_stripped"
-    },
-    "I": {
-      "item": "minecraft:stone_bricks"
-    }
+    "i": "dawnoftimebuilder:waxed_oak_log_stripped",
+    "I": "minecraft:stone_bricks"
   },
   "result": {
     "count": 4,

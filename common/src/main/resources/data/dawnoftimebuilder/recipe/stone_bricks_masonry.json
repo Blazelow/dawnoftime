@@ -6,12 +6,8 @@
     "IiI"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:stone_bricks"
-    },
-    "i": {
-      "item": "minecraft:cobblestone"
-    }
+    "I": "minecraft:stone_bricks",
+    "i": "minecraft:cobblestone"
   },
   "result": {
     "count": 9,

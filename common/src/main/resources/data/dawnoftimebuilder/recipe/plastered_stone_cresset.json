@@ -6,15 +6,9 @@
     " I "
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:plastered_stone"
-    },
-    "i": {
-      "item": "minecraft:gold_nugget"
-    },
-    "x": {
-      "item": "minecraft:coal"
-    }
+    "I": "dawnoftimebuilder:plastered_stone",
+    "i": "minecraft:gold_nugget",
+    "x": "minecraft:coal"
   },
   "result": {
     "count": 4,

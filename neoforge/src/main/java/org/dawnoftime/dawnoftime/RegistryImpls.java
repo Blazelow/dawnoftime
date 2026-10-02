@@ -1,10 +1,11 @@
 package org.dawnoftime.dawnoftime;
 
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.player.Inventory;
@@ -48,7 +49,7 @@ public class RegistryImpls {
 
         @Override
         public <T extends BlockEntity> Supplier<BlockEntityType<T>> register(String name, BiFunction<BlockPos, BlockState, T> factoryIn, Supplier<Block[]> validBlocksSupplier) {
-            return BLOCK_ENTITY_TYPES_REGISTRY.register(name, () -> BlockEntityType.Builder.of(factoryIn::apply, validBlocksSupplier.get()).build(null));
+            return BLOCK_ENTITY_TYPES_REGISTRY.register(name, () -> new BlockEntityType<>(factoryIn::apply, validBlocksSupplier.get()));
         }
     }
 
@@ -62,9 +63,9 @@ public class RegistryImpls {
         @SafeVarargs
         @Override
         public final <T extends Block, Y extends Item> Supplier<T> registerWithItem(String id, Supplier<T> block, Function<T, Y> item, TagKey<Block>... tags) {
-            Supplier<T> registryBlock = BLOCKS_REGISTRY.register(id, block);
+            Supplier<T> registryBlock = BLOCKS_REGISTRY.register(id, () -> RegistryIds.withId(id, block));
             if (item != null) {
-                BLOCK_ITEMS_REGISTRY.register(id, () -> item.apply(registryBlock.get()));
+                BLOCK_ITEMS_REGISTRY.register(id, () -> RegistryIds.withId(id, () -> item.apply(registryBlock.get())));
             }
             if (tags.length == 0) {
                 addBlockTag(registryBlock, BlockTags.MINEABLE_WITH_PICKAXE);
@@ -81,7 +82,7 @@ public class RegistryImpls {
         public static final DeferredRegister<EntityType<?>> ENTITY_TYPES_REGISTRY = DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, DoTBCommon.MOD_ID);
         @Override
         public <T extends Entity> Supplier<EntityType<T>> register(String name, Supplier<EntityType.Builder<T>> builder) {
-            return ENTITY_TYPES_REGISTRY.register(name, () -> builder.get().build(name));
+            return ENTITY_TYPES_REGISTRY.register(name, () -> builder.get().build(ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(DoTBCommon.MOD_ID, name))));
         }
     }
 
@@ -93,7 +94,7 @@ public class RegistryImpls {
 
         @Override
         public <T extends Item> Supplier<Item> register(String name, Supplier<T> itemSupplier) {
-            return ITEMS_REGISTRY.register(name, itemSupplier);
+            return ITEMS_REGISTRY.register(name, () -> RegistryIds.withId(name, itemSupplier));
         }
     }
 
@@ -111,7 +112,7 @@ public class RegistryImpls {
 
         @Override
         public <T extends Recipe<?>> Supplier<RecipeType<T>> register(String name) {
-            return RECIPE_TYPES_REGISTRY.register(name, () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(DoTBCommon.MOD_ID, name)));
+            return RECIPE_TYPES_REGISTRY.register(name, () -> RecipeType.simple(Identifier.fromNamespaceAndPath(DoTBCommon.MOD_ID, name)));
         }
     }
 
@@ -126,12 +127,12 @@ public class RegistryImpls {
 
     public static class ForgeTagsRegistry extends DoTBTags {
         @Override
-        public TagKey<Block> registerBlock(ResourceLocation id) {
+        public TagKey<Block> registerBlock(Identifier id) {
             return TagKey.create(Registries.BLOCK, id);
         }
 
         @Override
-        public TagKey<Item> registerItem(ResourceLocation id) {
+        public TagKey<Item> registerItem(Identifier id) {
             return TagKey.create(Registries.ITEM, id);
         }
     }

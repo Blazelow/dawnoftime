@@ -5,12 +5,8 @@
     "i"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:red_painted_log"
-    },
-    "i": {
-      "item": "dawnoftimebuilder:charred_spruce_log_stripped"
-    }
+    "I": "dawnoftimebuilder:red_painted_log",
+    "i": "dawnoftimebuilder:charred_spruce_log_stripped"
   },
   "result": {
     "count": 4,

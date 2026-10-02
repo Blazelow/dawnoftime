@@ -4,9 +4,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:slate_bricks"
-    }
+    "I": "dawnoftimebuilder:slate_bricks"
   },
   "result": {
     "count": 6,

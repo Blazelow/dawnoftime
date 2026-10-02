@@ -6,9 +6,7 @@
     " o "
   ],
   "key": {
-    "o": {
-      "item": "minecraft:clay_ball"
-    }
+    "o": "minecraft:clay_ball"
   },
   "result": {
     "count": 5,

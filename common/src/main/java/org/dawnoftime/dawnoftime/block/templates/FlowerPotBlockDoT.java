@@ -1,5 +1,6 @@
 package org.dawnoftime.dawnoftime.block.templates;
 
+import org.dawnoftime.dawnoftime.registry.RegistryIds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
@@ -21,7 +22,7 @@ public class FlowerPotBlockDoT extends BlockDoT implements IBlockSpecialDisplay 
     private Item itemInPot;
 
     public FlowerPotBlockDoT(@Nullable Item itemInPot) {
-        super(Properties.ofFullCopy(FLOWER_POT), FLOWER_POT_SHAPE);
+        super(RegistryIds.copyOf(FLOWER_POT), FLOWER_POT_SHAPE);
         this.itemInPot = itemInPot;
     }
 

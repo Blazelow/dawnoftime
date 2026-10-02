@@ -4,12 +4,8 @@
     "IiI"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:red_plastered_stone"
-    },
-    "i": {
-      "item": "minecraft:blue_dye"
-    }
+    "I": "dawnoftimebuilder:red_plastered_stone",
+    "i": "minecraft:blue_dye"
   },
   "result": {
     "count": 6,

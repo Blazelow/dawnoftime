@@ -1,5 +1,7 @@
 package org.dawnoftime.dawnoftime.block.templates;
 
+import org.dawnoftime.dawnoftime.registry.RegistryIds;
+import org.dawnoftime.dawnoftime.item.templates.DoTBBlockItem;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -84,7 +86,7 @@ public class MixedSlabBlock extends SlabBlockDoT {
     }
 
     public static Item getBlockItem(MixedSlabBlock block) {
-        return new BlockItem(block, new Item.Properties()) {
+        return new DoTBBlockItem(block, RegistryIds.blockItemProperties()) {
             @Override
             public InteractionResult place(BlockPlaceContext context) {
                 Direction facing = context.getClickedFace();

@@ -6,12 +6,8 @@
     "ii"
   ],
   "key": {
-    "i": {
-      "item": "minecraft:spruce_planks"
-    },
-    "I": {
-      "item": "minecraft:paper"
-    }
+    "i": "minecraft:spruce_planks",
+    "I": "minecraft:paper"
   },
   "result": {
     "count": 4,

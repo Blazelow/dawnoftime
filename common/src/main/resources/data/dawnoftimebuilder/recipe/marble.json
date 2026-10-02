@@ -5,9 +5,7 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:calcite"
-    }
+    "I": "minecraft:calcite"
   },
   "result": {
     "count": 4,

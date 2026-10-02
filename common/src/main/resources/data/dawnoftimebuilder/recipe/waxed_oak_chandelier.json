@@ -6,15 +6,9 @@
     "ooo"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:chain"
-    },
-    "i": {
-      "item": "minecraft:candle"
-    },
-    "o": {
-      "item": "dawnoftimebuilder:waxed_oak_planks"
-    }
+    "I": "minecraft:iron_chain",
+    "i": "minecraft:candle",
+    "o": "dawnoftimebuilder:waxed_oak_planks"
   },
   "result": {
     "id": "dawnoftimebuilder:waxed_oak_chandelier"

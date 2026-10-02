@@ -5,15 +5,9 @@
     "IoI"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:plastered_stone"
-    },
-    "o": {
-      "item": "minecraft:gold_nugget"
-    },
-    "i": {
-      "item": "minecraft:green_dye"
-    }
+    "I": "dawnoftimebuilder:plastered_stone",
+    "o": "minecraft:gold_nugget",
+    "i": "minecraft:green_dye"
   },
   "result": {
     "count": 6,

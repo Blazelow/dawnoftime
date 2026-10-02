@@ -6,9 +6,7 @@
     "I"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:sandstone_bricks_turquoise_pattern"
-    }
+    "I": "dawnoftimebuilder:sandstone_bricks_turquoise_pattern"
   },
   "result": {
     "count": 6,

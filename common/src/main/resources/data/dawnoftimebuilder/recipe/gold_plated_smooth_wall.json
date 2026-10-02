@@ -5,9 +5,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:gold_plated_smooth_block"
-    }
+    "I": "dawnoftimebuilder:gold_plated_smooth_block"
   },
   "result": {
     "count": 9,

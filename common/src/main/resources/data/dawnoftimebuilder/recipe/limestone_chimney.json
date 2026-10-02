@@ -5,12 +5,8 @@
     "ii"
   ],
   "key": {
-    "i": {
-      "item": "dawnoftimebuilder:limestone_bricks"
-    },
-    "I": {
-      "item": "dawnoftimebuilder:roofing_slates"
-    }
+    "i": "dawnoftimebuilder:limestone_bricks",
+    "I": "dawnoftimebuilder:roofing_slates"
   },
   "result": {
     "id": "dawnoftimebuilder:limestone_chimney"

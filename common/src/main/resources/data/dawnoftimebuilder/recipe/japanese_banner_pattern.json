@@ -1,12 +1,8 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    {
-      "item": "minecraft:paper"
-    },
-    {
-      "item": "dawnoftimebuilder:japanese_emblem"
-    }
+    "minecraft:paper",
+    "dawnoftimebuilder:japanese_emblem"
   ],
   "result": {
     "count": 1,

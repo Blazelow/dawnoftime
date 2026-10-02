@@ -6,12 +6,8 @@
     " I "
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:plastered_stone"
-    },
-    "i": {
-      "item": "dawnoftimebuilder:chiseled_plastered_stone"
-    }
+    "I": "dawnoftimebuilder:plastered_stone",
+    "i": "dawnoftimebuilder:chiseled_plastered_stone"
   },
   "result": {
     "count": 6,

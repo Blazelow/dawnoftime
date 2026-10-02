@@ -1,6 +1,8 @@
 package org.dawnoftime.dawnoftime.block.japanese;
 
 import net.minecraft.network.chat.Component;
+import java.util.function.Consumer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -15,10 +17,9 @@ public class FlatPaperWallBlock extends PillarPaneBlock {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, Item.TooltipContext context,
-            @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, Consumer<Component> tooltip, TooltipFlag flag) {
         super.appendHoverText(stack, context, tooltip, flag);
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.connected_texture_label"));
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.connected_texture"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.connected_texture_label"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.connected_texture"));
     }
 }

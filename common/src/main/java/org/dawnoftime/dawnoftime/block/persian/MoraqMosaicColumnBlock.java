@@ -1,5 +1,6 @@
 package org.dawnoftime.dawnoftime.block.persian;
 
+import java.util.function.Consumer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
@@ -51,12 +52,11 @@ public class MoraqMosaicColumnBlock extends ConnectedVerticalBlock {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, Item.TooltipContext context,
-            @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, Consumer<Component> tooltip, TooltipFlag flag) {
         super.appendHoverText(stack, context, tooltip, flag);
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.column_label"));
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.moraq_mosaic_column"));
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.column"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.column_label"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.moraq_mosaic_column"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.column"));
     }
 
 }

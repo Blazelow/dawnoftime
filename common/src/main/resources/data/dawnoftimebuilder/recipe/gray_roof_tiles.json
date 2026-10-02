@@ -5,9 +5,7 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:gray_clay_roof_tile"
-    }
+    "I": "dawnoftimebuilder:gray_clay_roof_tile"
   },
   "result": {
     "count": 6,

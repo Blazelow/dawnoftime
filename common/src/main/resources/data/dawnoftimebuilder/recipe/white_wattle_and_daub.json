@@ -5,15 +5,9 @@
     "IX"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:clay_ball"
-    },
-    "i": {
-      "item": "minecraft:wheat"
-    },
-    "X": {
-      "item": "minecraft:white_dye"
-    }
+    "I": "minecraft:clay_ball",
+    "i": "minecraft:wheat",
+    "X": "minecraft:white_dye"
   },
   "result": {
     "count": 8,

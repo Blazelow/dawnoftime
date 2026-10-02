@@ -1,5 +1,8 @@
 package org.dawnoftime.dawnoftime.block.templates;
 
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.ScheduledTickAccess;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionResult;
@@ -9,7 +12,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -51,12 +53,12 @@ public class ConnectedVerticalSidedPlanBlock extends ConnectedVerticalSidedBlock
     }
 
     @Override
-    public @NotNull BlockState updateShape(BlockState stateIn, @NotNull Direction facing, @NotNull BlockState facingState, @NotNull LevelAccessor worldIn, @NotNull BlockPos currentPos, @NotNull BlockPos facingPos) {
-        stateIn = super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+    public @NotNull BlockState updateShape(BlockState stateIn, LevelReader worldIn, ScheduledTickAccess scheduledTickAccess, BlockPos currentPos, Direction facing, BlockPos facingPos, BlockState facingState, RandomSource randomSource) {
+        stateIn = super.updateShape(stateIn, worldIn, scheduledTickAccess, currentPos, facing, facingPos, facingState, randomSource);
         return (facing.getAxis() == stateIn.getValue(FACING).getClockWise().getAxis()) ? stateIn.setValue(HORIZONTAL_CONNECTION, this.getLineState(worldIn, currentPos, stateIn)) : stateIn;
     }
 
-    public BlockStatePropertiesAA.HorizontalConnection getLineState(LevelAccessor worldIn, BlockPos pos, BlockState stateIn) {
+    public BlockStatePropertiesAA.HorizontalConnection getLineState(LevelReader worldIn, BlockPos pos, BlockState stateIn) {
         Direction direction = stateIn.getValue(FACING).getClockWise();
         if(isConnectible(stateIn, worldIn, pos.relative(direction, -1), direction)) {
             return (isConnectible(stateIn, worldIn, pos.relative(direction), direction)) ? BlockStatePropertiesAA.HorizontalConnection.BOTH : BlockStatePropertiesAA.HorizontalConnection.LEFT;

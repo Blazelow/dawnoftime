@@ -1,5 +1,9 @@
 package org.dawnoftime.dawnoftime.block.templates;
 
+import net.minecraft.world.level.LevelAccessor;
+import org.jetbrains.annotations.Nullable;
+import net.minecraft.world.level.redstone.Orientation;
+import java.util.function.Consumer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -9,6 +13,9 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.*;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.Snowball;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.ThrowableItemProjectile;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
@@ -17,7 +24,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -68,8 +75,8 @@ public class ConnectedVerticalSidedPlanFireplaceBlock extends ConnectedVerticalS
             final int activation = Utils.changeBlockLitStateWithItemOrCreativePlayer(stateIn, worldIn, pos, player, player.getUsedItemHand());
             if(activation >= 0) {
                 final Direction direction = stateIn.getValue(ConnectedVerticalSidedBlock.FACING);
-                worldIn.getBlockState(pos.relative(direction.getCounterClockWise())).handleNeighborChanged(worldIn, pos.relative(direction.getCounterClockWise()), this, pos, false);
-                worldIn.getBlockState(pos.relative(direction.getClockWise())).handleNeighborChanged(worldIn, pos.relative(direction.getClockWise()), stateIn.getBlock(), pos, false);
+                worldIn.getBlockState(pos.relative(direction.getCounterClockWise())).handleNeighborChanged(worldIn, pos.relative(direction.getCounterClockWise()), this, null, false);
+                worldIn.getBlockState(pos.relative(direction.getClockWise())).handleNeighborChanged(worldIn, pos.relative(direction.getClockWise()), stateIn.getBlock(), null, false);
 
                 ConnectedVerticalSidedPlanFireplaceBlock.updateChimneys(activation == 1, stateIn, pos, worldIn);
 
@@ -116,32 +123,37 @@ public class ConnectedVerticalSidedPlanFireplaceBlock extends ConnectedVerticalS
             ConnectedVerticalSidedPlanFireplaceBlock.updateChimneys(isActivated, state, pos, worldIn);
 
             final Direction direction = state.getValue(ConnectedVerticalSidedBlock.FACING);
-            worldIn.getBlockState(pos.relative(direction.getClockWise())).handleNeighborChanged(worldIn, pos.relative(direction.getClockWise()), this, pos, false);
-            worldIn.getBlockState(pos.relative(direction.getCounterClockWise())).handleNeighborChanged(worldIn, pos.relative(direction.getCounterClockWise()), this, pos, false);
+            worldIn.getBlockState(pos.relative(direction.getClockWise())).handleNeighborChanged(worldIn, pos.relative(direction.getClockWise()), this, null, false);
+            worldIn.getBlockState(pos.relative(direction.getCounterClockWise())).handleNeighborChanged(worldIn, pos.relative(direction.getCounterClockWise()), this, null, false);
         }
     }
 
     @Override
-    public void neighborChanged(final BlockState state, final Level worldIn, final BlockPos pos, final Block blockIn, final BlockPos fromPos, final boolean isMoving) {
+    public void neighborChanged(final BlockState state, final Level worldIn, final BlockPos pos, final Block blockIn, @Nullable final Orientation orientation, final boolean isMoving) {
+        // Since 1.21.2 the source position of the update is no longer given, so both lateral neighbors are checked.
         if(state.getValue(ConnectedVerticalBlock.VERTICAL_CONNECTION) != BlockStatePropertiesAA.VerticalConnection.BOTH && state.getValue(ConnectedVerticalBlock.VERTICAL_CONNECTION) != BlockStatePropertiesAA.VerticalConnection.UNDER) {
-            final BlockState newState = worldIn.getBlockState(fromPos);
-            if(newState.getBlock() == this) {
-                final Direction facing = state.getValue(ConnectedVerticalSidedBlock.FACING);
-                if(newState.getValue(ConnectedVerticalSidedBlock.FACING) == facing) {
-                    if((facing.equals(Direction.NORTH) || facing.equals(Direction.SOUTH)) && fromPos.getZ() != pos.getZ())
-                        return;
-                    if((facing.equals(Direction.EAST) || facing.equals(Direction.WEST)) && fromPos.getX() != pos.getX())
-                        return;
+            final Direction facing = state.getValue(ConnectedVerticalSidedBlock.FACING);
+            this.syncLitWithNeighbor(state, worldIn, pos, pos.relative(facing.getClockWise()));
+            final BlockState currentState = worldIn.getBlockState(pos);
+            if(currentState.getBlock() == this) {
+                this.syncLitWithNeighbor(currentState, worldIn, pos, pos.relative(facing.getCounterClockWise()));
+            }
+        }
+    }
 
-                    final boolean burning = newState.getValue(ConnectedVerticalSidedPlanFireplaceBlock.LIT);
-                    if(burning != state.getValue(ConnectedVerticalSidedPlanFireplaceBlock.LIT)) {
-                        if(newState.getValue(ConnectedVerticalSidedPlanFireplaceBlock.LIT) && state.getValue(WaterloggedBlock.WATERLOGGED)) {
-                            return;
-                        }
-                        worldIn.setBlock(pos, state.setValue(ConnectedVerticalSidedPlanFireplaceBlock.LIT, burning), 10);
-                        final BlockPos newPos = pos.relative(facing.getClockWise()).equals(fromPos) ? pos.relative(facing.getCounterClockWise()) : pos.relative(facing.getClockWise());
-                        worldIn.getBlockState(newPos).handleNeighborChanged(worldIn, newPos, this, pos, false);
+    private void syncLitWithNeighbor(final BlockState state, final Level worldIn, final BlockPos pos, final BlockPos fromPos) {
+        final BlockState newState = worldIn.getBlockState(fromPos);
+        if(newState.getBlock() == this) {
+            final Direction facing = state.getValue(ConnectedVerticalSidedBlock.FACING);
+            if(newState.getValue(ConnectedVerticalSidedBlock.FACING) == facing) {
+                final boolean burning = newState.getValue(ConnectedVerticalSidedPlanFireplaceBlock.LIT);
+                if(burning != state.getValue(ConnectedVerticalSidedPlanFireplaceBlock.LIT)) {
+                    if(burning && state.getValue(WaterloggedBlock.WATERLOGGED)) {
+                        return;
                     }
+                    worldIn.setBlock(pos, state.setValue(ConnectedVerticalSidedPlanFireplaceBlock.LIT, burning), 10);
+                    final BlockPos newPos = pos.relative(facing.getClockWise()).equals(fromPos) ? pos.relative(facing.getCounterClockWise()) : pos.relative(facing.getClockWise());
+                    worldIn.getBlockState(newPos).handleNeighborChanged(worldIn, newPos, this, null, false);
                 }
             }
         }
@@ -238,11 +250,10 @@ public class ConnectedVerticalSidedPlanFireplaceBlock extends ConnectedVerticalS
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, Item.TooltipContext context,
-            @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.dynamic_model_label"));
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.dynamic_model"));
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.fireplace"));
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, Consumer<Component> tooltip, TooltipFlag flag) {
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.dynamic_model_label"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.dynamic_model"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.fireplace"));
     }
 
 }

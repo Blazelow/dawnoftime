@@ -1,5 +1,7 @@
 package org.dawnoftime.dawnoftime.block.templates;
 
+import java.util.function.Consumer;
+import org.dawnoftime.dawnoftime.block.IBlockTooltip;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -21,7 +23,7 @@ import java.util.List;
 import static org.dawnoftime.dawnoftime.DoTBCommon.MOD_ID;
 import static org.dawnoftime.dawnoftime.util.VoxelShapes.FULL_SHAPE;
 
-public class BlockDoT extends Block implements IFlammable {
+public class BlockDoT extends Block implements IBlockTooltip, IFlammable {
     private int fireSpreadSpeed = 0;
     private int fireDestructionSpeed = 0;
     private final VoxelShape[] shapes;
@@ -104,11 +106,9 @@ public class BlockDoT extends Block implements IFlammable {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, Item.TooltipContext context,
-            @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
-        super.appendHoverText(stack, context, tooltip, flag);
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, Consumer<Component> tooltip, TooltipFlag flag) {
         for (String key : tooltipKeys) {
-            tooltip.add(Component.translatable(key));
+            tooltip.accept(Component.translatable(key));
         }
     }
 

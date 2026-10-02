@@ -4,9 +4,7 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:sculpted_waxed_oak_slab"
-    }
+    "I": "dawnoftimebuilder:sculpted_waxed_oak_slab"
   },
   "result": {
     "count": 6,

@@ -6,12 +6,8 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:green_painted_window"
-    },
-    "i": {
-      "item": "minecraft:yellow_dye"
-    }
+    "I": "dawnoftimebuilder:green_painted_window",
+    "i": "minecraft:yellow_dye"
   },
   "result": {
     "count": 9,

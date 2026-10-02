@@ -6,12 +6,8 @@
     "iii"
   ],
   "key": {
-    "i": {
-      "item": "dawnoftimebuilder:waxed_oak_planks"
-    },
-    "I": {
-      "item": "minecraft:stick"
-    }
+    "i": "dawnoftimebuilder:waxed_oak_planks",
+    "I": "minecraft:stick"
   },
   "result": {
     "count": 9,

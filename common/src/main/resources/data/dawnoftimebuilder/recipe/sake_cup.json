@@ -6,9 +6,7 @@
     " I "
   ],
   "key": {
-    "I": {
-      "item": "minecraft:clay_ball"
-    }
+    "I": "minecraft:clay_ball"
   },
   "result": {
     "id": "dawnoftimebuilder:sake_cup"

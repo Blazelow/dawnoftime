@@ -1,5 +1,7 @@
 package org.dawnoftime.dawnoftime.block.templates;
 
+import java.util.function.Consumer;
+import org.dawnoftime.dawnoftime.block.IBlockTooltip;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -16,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class RotatedPillarBlockDoT extends RotatedPillarBlock implements IFlammable {
+public class RotatedPillarBlockDoT extends RotatedPillarBlock implements IBlockTooltip, IFlammable {
     private int fireSpreadSpeed = 0;
     private int fireDestructionSpeed = 0;
     private final String[] tooltipKeys;
@@ -31,11 +33,9 @@ public class RotatedPillarBlockDoT extends RotatedPillarBlock implements IFlamma
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, Item.TooltipContext context,
-            @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
-        super.appendHoverText(stack, context, tooltip, flag);
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, Consumer<Component> tooltip, TooltipFlag flag) {
         for (String key : tooltipKeys) {
-            tooltip.add(Component.translatable(key));
+            tooltip.accept(Component.translatable(key));
         }
     }
 

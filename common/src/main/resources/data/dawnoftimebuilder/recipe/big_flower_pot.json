@@ -6,12 +6,8 @@
     " I "
   ],
   "key": {
-    "I": {
-      "item": "minecraft:brick"
-    },
-    "x": {
-      "item": "minecraft:dirt"
-    }
+    "I": "minecraft:brick",
+    "x": "minecraft:dirt"
   },
   "result": {
     "count": 2,

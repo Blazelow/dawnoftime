@@ -4,9 +4,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:iron_bars"
-    }
+    "I": "minecraft:iron_bars"
   },
   "result": {
     "count": 2,

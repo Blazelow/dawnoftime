@@ -5,12 +5,8 @@
     "iIi"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:waxed_acacia_log_stripped"
-    },
-    "i": {
-      "item": "minecraft:stick"
-    }
+    "I": "dawnoftimebuilder:waxed_acacia_log_stripped",
+    "i": "minecraft:stick"
   },
   "result": {
     "count": 6,

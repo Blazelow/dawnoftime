@@ -4,9 +4,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:charred_spruce_planks_slab"
-    }
+    "I": "dawnoftimebuilder:charred_spruce_planks_slab"
   },
   "result": {
     "count": 6,

@@ -6,9 +6,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:green_plastered_stone"
-    }
+    "I": "dawnoftimebuilder:green_plastered_stone"
   },
   "result": {
     "count": 6,

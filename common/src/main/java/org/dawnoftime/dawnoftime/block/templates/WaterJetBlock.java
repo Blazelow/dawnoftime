@@ -1,5 +1,6 @@
 package org.dawnoftime.dawnoftime.block.templates;
 
+import java.util.function.Consumer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -109,7 +110,7 @@ public class WaterJetBlock extends BlockDoT {
     @Override
     public InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos,
                                  Player player, BlockHitResult hit) {
-        if (world.isClientSide) {
+        if (world.isClientSide()) {
             world.playSound(player, pos, SoundEvents.LEVER_CLICK, SoundSource.BLOCKS, 0.3F, 0.6F);
             world.playSound(player, pos, SoundEvents.WATER_AMBIENT, SoundSource.BLOCKS, 0.3F, 1.0F);
         }
@@ -192,9 +193,8 @@ public class WaterJetBlock extends BlockDoT {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, Item.TooltipContext context,
-            @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, Consumer<Component> tooltip, TooltipFlag flag) {
         super.appendHoverText(stack, context, tooltip, flag);
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.water_jet"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.water_jet"));
     }
 }

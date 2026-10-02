@@ -1,5 +1,9 @@
 package org.dawnoftime.dawnoftime.block.general;
 
+import net.minecraft.world.level.LevelAccessor;
+import java.util.function.Consumer;
+import net.minecraft.world.entity.InsideBlockEffectApplier;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -12,6 +16,10 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.*;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.Snowball;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.ThrowableItemProjectile;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import net.minecraft.world.entity.projectile.hurtingprojectile.Fireball;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
@@ -22,7 +30,6 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -79,8 +86,8 @@ public class FireplaceBlock extends WaterloggedBlock {
     }
 
     @Override
-    public @NotNull BlockState updateShape(BlockState stateIn, final @NotNull Direction facing, final @NotNull BlockState facingState, final @NotNull LevelAccessor worldIn, final @NotNull BlockPos currentPos, final @NotNull BlockPos facingPos) {
-        stateIn = super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+    public @NotNull BlockState updateShape(BlockState stateIn, LevelReader worldIn, ScheduledTickAccess scheduledTickAccess, BlockPos currentPos, Direction facing, BlockPos facingPos, BlockState facingState, RandomSource randomSource) {
+        stateIn = super.updateShape(stateIn, worldIn, scheduledTickAccess, currentPos, facing, facingPos, facingState, randomSource);
         if (stateIn.getValue(WATERLOGGED)) {
             stateIn = stateIn.setValue(LIT, false);
         } else {
@@ -135,11 +142,11 @@ public class FireplaceBlock extends WaterloggedBlock {
     }
 
     @Override
-    public void entityInside(final BlockState state, final Level world, final BlockPos pos, final Entity entityIn) {
+    public void entityInside(final BlockState state, final Level world, final BlockPos pos, final Entity entityIn, final InsideBlockEffectApplier effectApplier, final boolean isPrecise) {
         if (!entityIn.fireImmune() && state.getValue(FireplaceBlock.LIT) && entityIn instanceof LivingEntity && !(EnchantmentHelper.getEnchantmentLevel(entityIn.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FROST_WALKER), (LivingEntity) entityIn) > 0)) {
             entityIn.hurt(entityIn.damageSources().inFire(), 1.0F);
         }
-        super.entityInside(state, world, pos, entityIn);
+        super.entityInside(state, world, pos, entityIn, effectApplier, isPrecise);
     }
 
     @Nullable
@@ -209,10 +216,9 @@ public class FireplaceBlock extends WaterloggedBlock {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, Item.TooltipContext context,
-            @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, Consumer<Component> tooltip, TooltipFlag flag) {
         super.appendHoverText(stack, context, tooltip, flag);
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.fireplace"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.fireplace"));
     }
 
 }

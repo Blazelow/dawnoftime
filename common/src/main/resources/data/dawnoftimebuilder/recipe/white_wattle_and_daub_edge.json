@@ -4,9 +4,7 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:white_wattle_and_daub_slab"
-    }
+    "I": "dawnoftimebuilder:white_wattle_and_daub_slab"
   },
   "result": {
     "count": 6,

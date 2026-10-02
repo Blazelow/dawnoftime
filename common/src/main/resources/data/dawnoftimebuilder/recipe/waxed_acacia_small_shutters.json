@@ -5,12 +5,8 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:waxed_acacia_planks"
-    },
-    "i": {
-      "item": "minecraft:iron_ingot"
-    }
+    "I": "dawnoftimebuilder:waxed_acacia_planks",
+    "i": "minecraft:iron_ingot"
   },
   "result": {
     "count": 6,

@@ -1,5 +1,6 @@
 package org.dawnoftime.dawnoftime.block.roman;
 
+import java.util.function.Consumer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -8,7 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -62,7 +63,7 @@ public class MarbleColumnBlock extends ConnectedVerticalBlock implements IBlockP
     }
 
     @Override
-    public boolean isConnectible(BlockState stateIn, LevelAccessor worldIn, BlockPos pos, Direction faceToConnect) {
+    public boolean isConnectible(BlockState stateIn, LevelReader worldIn, BlockPos pos, Direction faceToConnect) {
         BlockState testedState = worldIn.getBlockState(pos);
         if (faceToConnect == Direction.DOWN && IBlockPillar.getPillarConnectionUnder(worldIn, pos) == BlockStatePropertiesAA.PillarConnection.EIGHT_PX) {
             return true;
@@ -74,10 +75,9 @@ public class MarbleColumnBlock extends ConnectedVerticalBlock implements IBlockP
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, Item.TooltipContext context,
-            @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, Consumer<Component> tooltip, TooltipFlag flag) {
         super.appendHoverText(stack, context, tooltip, flag);
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.column_label"));
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.column"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.column_label"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.column"));
     }
 }

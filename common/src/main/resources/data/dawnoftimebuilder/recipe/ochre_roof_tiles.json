@@ -5,12 +5,8 @@
     "Ii"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:stone"
-    },
-    "i": {
-      "item": "minecraft:orange_dye"
-    }
+    "I": "minecraft:stone",
+    "i": "minecraft:orange_dye"
   },
   "result": {
     "count": 6,

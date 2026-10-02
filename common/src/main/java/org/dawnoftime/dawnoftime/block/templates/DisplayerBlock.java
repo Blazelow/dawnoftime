@@ -92,17 +92,6 @@ public abstract class DisplayerBlock extends WaterloggedBlock implements EntityB
         return InteractionResult.SUCCESS;
     }
 
-    @Override
-    public void onRemove(BlockState oldState, Level worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
-        if(oldState.getBlock() != newState.getBlock()) {
-            BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-            if(tileEntity instanceof DisplayerBlockEntity displayerEntity) {
-                displayerEntity.removeAllItems().forEach(itemStack -> dropItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), itemStack));
-            }
-        }
-        super.onRemove(oldState, worldIn, pos, newState, isMoving);
-    }
-
     public abstract double getDisplayerX(BlockState state);
 
     public abstract double getDisplayerY(BlockState state);

@@ -5,12 +5,8 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:charred_spruce_planks"
-    },
-    "i": {
-      "item": "minecraft:iron_ingot"
-    }
+    "I": "dawnoftimebuilder:charred_spruce_planks",
+    "i": "minecraft:iron_ingot"
   },
   "result": {
     "count": 6,

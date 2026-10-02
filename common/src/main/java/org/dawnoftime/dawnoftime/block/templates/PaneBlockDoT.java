@@ -1,5 +1,9 @@
 package org.dawnoftime.dawnoftime.block.templates;
 
+import java.util.function.Consumer;
+import org.dawnoftime.dawnoftime.block.IBlockTooltip;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -9,7 +13,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoorBlock;
@@ -22,7 +25,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class PaneBlockDoT extends IronBarsBlock {
+public class PaneBlockDoT extends IronBarsBlock implements IBlockTooltip  {
     private final String[] tooltipKeys;
 
     public PaneBlockDoT(Properties properties, String... tooltipKeys) {
@@ -35,11 +38,9 @@ public class PaneBlockDoT extends IronBarsBlock {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, Item.TooltipContext context,
-            @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
-        super.appendHoverText(stack, context, tooltip, flag);
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, Consumer<Component> tooltip, TooltipFlag flag) {
         for (String key : tooltipKeys) {
-            tooltip.add(Component.translatable(key));
+            tooltip.accept(Component.translatable(key));
         }
     }
 
@@ -67,11 +68,24 @@ public class PaneBlockDoT extends IronBarsBlock {
     }
 
     @Override
-    public @NotNull BlockState updateShape(BlockState stateIn, @NotNull Direction facing, @NotNull BlockState facingState, @NotNull LevelAccessor worldIn, @NotNull BlockPos currentPos, @NotNull BlockPos facingPos) {
+    public @NotNull BlockState updateShape(BlockState stateIn, LevelReader worldIn, ScheduledTickAccess scheduledTickAccess, BlockPos currentPos, Direction facing, BlockPos facingPos, BlockState facingState, RandomSource randomSource) {
         // Override was required because IronBarsBlock#attachsTo() is final (???) and I need to allow connection to CenteredDoors.
         if(stateIn.getValue(WATERLOGGED))
-            worldIn.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(worldIn));
+            scheduledTickAccess.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(worldIn));
         return facing.getAxis().isHorizontal() ? stateIn.setValue(PROPERTY_BY_DIRECTION.get(facing), this.canAttachPane(worldIn, facingPos, facing.getOpposite(), facingState)) : stateIn;
+    }
+
+    /**
+     * @return the index of the pane connections in a 16 sized shape array (bit order: south, west, north, east).
+     */
+    protected int getAABBIndex(BlockState state) {
+        int index = 0;
+        for (Direction direction : Direction.Plane.HORIZONTAL) {
+            if (state.getValue(PROPERTY_BY_DIRECTION.get(direction))) {
+                index |= 1 << direction.get2DDataValue();
+            }
+        }
+        return index;
     }
 
     public boolean canAttachPane(LevelReader level, BlockPos pos, Direction dir, BlockState adjacentState) {

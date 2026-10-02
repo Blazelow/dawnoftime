@@ -6,18 +6,10 @@
     "oIo"
   ],
   "key": {
-    "i": {
-      "item": "minecraft:stick"
-    },
-    "O": {
-      "item": "minecraft:torch"
-    },
-    "I": {
-      "item": "minecraft:paper"
-    },
-    "o": {
-      "item": "minecraft:ink_sac"
-    }
+    "i": "minecraft:stick",
+    "O": "minecraft:torch",
+    "I": "minecraft:paper",
+    "o": "minecraft:ink_sac"
   },
   "result": {
     "count": 6,

@@ -5,9 +5,7 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:bricks"
-    }
+    "I": "minecraft:bricks"
   },
   "result": {
     "count": 6,

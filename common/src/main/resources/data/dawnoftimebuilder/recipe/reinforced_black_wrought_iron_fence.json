@@ -5,12 +5,8 @@
     "xxx"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:black_wrought_iron_fence"
-    },
-    "x": {
-      "item": "dawnoftimebuilder:limestone_bricks"
-    }
+    "I": "dawnoftimebuilder:black_wrought_iron_fence",
+    "x": "dawnoftimebuilder:limestone_bricks"
   },
   "result": {
     "count": 6,

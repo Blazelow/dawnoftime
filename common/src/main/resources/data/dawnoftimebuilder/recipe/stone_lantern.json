@@ -6,18 +6,10 @@
     " o "
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:gray_roof_tiles"
-    },
-    "i": {
-      "item": "minecraft:paper"
-    },
-    "O": {
-      "item": "minecraft:torch"
-    },
-    "o": {
-      "item": "minecraft:cobblestone"
-    }
+    "I": "dawnoftimebuilder:gray_roof_tiles",
+    "i": "minecraft:paper",
+    "O": "minecraft:torch",
+    "o": "minecraft:cobblestone"
   },
   "result": {
     "count": 6,

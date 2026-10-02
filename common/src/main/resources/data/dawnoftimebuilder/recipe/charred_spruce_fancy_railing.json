@@ -5,12 +5,8 @@
     "iIi"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:charred_spruce_log_stripped"
-    },
-    "i": {
-      "item": "minecraft:stick"
-    }
+    "I": "dawnoftimebuilder:charred_spruce_log_stripped",
+    "i": "minecraft:stick"
   },
   "result": {
     "count": 6,

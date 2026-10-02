@@ -4,9 +4,7 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:waxed_acacia_slab"
-    }
+    "I": "dawnoftimebuilder:waxed_acacia_slab"
   },
   "result": {
     "count": 6,

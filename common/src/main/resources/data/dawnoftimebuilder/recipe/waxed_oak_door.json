@@ -6,12 +6,8 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:iron_ingot"
-    },
-    "i": {
-      "item": "dawnoftimebuilder:waxed_oak_planks"
-    }
+    "I": "minecraft:iron_ingot",
+    "i": "dawnoftimebuilder:waxed_oak_planks"
   },
   "result": {
     "count": 6,

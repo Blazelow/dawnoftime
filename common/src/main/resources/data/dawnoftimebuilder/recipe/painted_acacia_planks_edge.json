@@ -4,9 +4,7 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:painted_acacia_planks_slab"
-    }
+    "I": "dawnoftimebuilder:painted_acacia_planks_slab"
   },
   "result": {
     "count": 6,

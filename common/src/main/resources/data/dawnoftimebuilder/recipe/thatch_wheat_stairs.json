@@ -6,9 +6,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:thatch_wheat"
-    }
+    "I": "dawnoftimebuilder:thatch_wheat"
   },
   "result": {
     "count": 6,

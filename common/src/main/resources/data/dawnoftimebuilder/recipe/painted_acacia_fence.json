@@ -5,12 +5,8 @@
     "xix"
   ],
   "key": {
-    "x": {
-      "item": "minecraft:stick"
-    },
-    "i": {
-      "item": "dawnoftimebuilder:painted_acacia_planks"
-    }
+    "x": "minecraft:stick",
+    "i": "dawnoftimebuilder:painted_acacia_planks"
   },
   "result": {
     "count": 6,

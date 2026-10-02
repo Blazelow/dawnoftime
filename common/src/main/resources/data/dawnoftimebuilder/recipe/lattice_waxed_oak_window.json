@@ -5,12 +5,8 @@
     "IiI"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:lattice_glass_pane"
-    },
-    "i": {
-      "item": "dawnoftimebuilder:waxed_oak_planks"
-    }
+    "I": "dawnoftimebuilder:lattice_glass_pane",
+    "i": "dawnoftimebuilder:waxed_oak_planks"
   },
   "result": {
     "count": 16,

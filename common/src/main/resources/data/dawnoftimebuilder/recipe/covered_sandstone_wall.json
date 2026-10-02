@@ -6,12 +6,8 @@
     "III"
   ],
   "key": {
-    "i": {
-      "item": "dawnoftimebuilder:ochre_roof_tiles"
-    },
-    "I": {
-      "item": "minecraft:sandstone_wall"
-    }
+    "i": "dawnoftimebuilder:ochre_roof_tiles",
+    "I": "minecraft:sandstone_wall"
   },
   "result": {
     "count": 8,

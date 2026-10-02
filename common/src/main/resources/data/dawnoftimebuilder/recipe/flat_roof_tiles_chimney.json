@@ -5,12 +5,8 @@
     "ii"
   ],
   "key": {
-    "i": {
-      "item": "dawnoftimebuilder:stone_bricks_masonry"
-    },
-    "I": {
-      "item": "dawnoftimebuilder:flat_roof_tiles_slab"
-    }
+    "i": "dawnoftimebuilder:stone_bricks_masonry",
+    "I": "dawnoftimebuilder:flat_roof_tiles_slab"
   },
   "result": {
     "id": "dawnoftimebuilder:flat_roof_tiles_chimney"

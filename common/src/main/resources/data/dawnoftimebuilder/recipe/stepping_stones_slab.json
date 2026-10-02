@@ -5,12 +5,8 @@
     "III"
   ],
   "key": {
-    "i": {
-      "item": "minecraft:stone"
-    },
-    "I": {
-      "item": "minecraft:gravel"
-    }
+    "i": "minecraft:stone",
+    "I": "minecraft:gravel"
   },
   "result": {
     "count": 16,

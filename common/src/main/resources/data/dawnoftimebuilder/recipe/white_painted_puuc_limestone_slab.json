@@ -4,9 +4,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:white_painted_puuc_limestone"
-    }
+    "I": "dawnoftimebuilder:white_painted_puuc_limestone"
   },
   "result": {
     "count": 6,

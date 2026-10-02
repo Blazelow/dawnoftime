@@ -5,9 +5,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:lattice_glass"
-    }
+    "I": "dawnoftimebuilder:lattice_glass"
   },
   "result": {
     "count": 16,

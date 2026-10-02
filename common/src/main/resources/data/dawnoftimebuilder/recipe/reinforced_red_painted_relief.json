@@ -4,12 +4,8 @@
     "IiI"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:red_painted_log"
-    },
-    "i": {
-      "item": "minecraft:iron_ingot"
-    }
+    "I": "dawnoftimebuilder:red_painted_log",
+    "i": "minecraft:iron_ingot"
   },
   "result": {
     "count": 9,

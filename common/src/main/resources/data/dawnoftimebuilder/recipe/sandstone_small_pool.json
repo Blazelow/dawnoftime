@@ -4,9 +4,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:sandstone_pool"
-    }
+    "I": "dawnoftimebuilder:sandstone_pool"
   },
   "result": {
     "count": 6,

@@ -6,12 +6,8 @@
     " I "
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:limestone_bricks"
-    },
-    "o": {
-      "item": "dawnoftimebuilder:fireplace"
-    }
+    "I": "dawnoftimebuilder:limestone_bricks",
+    "o": "dawnoftimebuilder:fireplace"
   },
   "result": {
     "id": "dawnoftimebuilder:limestone_fireplace"

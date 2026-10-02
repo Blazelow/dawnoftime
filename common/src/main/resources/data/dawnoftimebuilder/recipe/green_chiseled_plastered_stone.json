@@ -6,12 +6,8 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:plastered_stone"
-    },
-    "i": {
-      "item": "minecraft:green_dye"
-    }
+    "I": "dawnoftimebuilder:plastered_stone",
+    "i": "minecraft:green_dye"
   },
   "result": {
     "count": 6,

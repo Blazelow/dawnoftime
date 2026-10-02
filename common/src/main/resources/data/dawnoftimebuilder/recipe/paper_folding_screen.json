@@ -6,15 +6,9 @@
     "IoI"
   ],
   "key": {
-    "i": {
-      "item": "minecraft:paper"
-    },
-    "I": {
-      "item": "minecraft:stick"
-    },
-    "o": {
-      "item": "minecraft:ink_sac"
-    }
+    "i": "minecraft:paper",
+    "I": "minecraft:stick",
+    "o": "minecraft:ink_sac"
   },
   "result": {
     "count": 4,

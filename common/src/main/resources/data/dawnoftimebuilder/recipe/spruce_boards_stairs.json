@@ -6,9 +6,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:spruce_boards"
-    }
+    "I": "dawnoftimebuilder:spruce_boards"
   },
   "result": {
     "count": 6,

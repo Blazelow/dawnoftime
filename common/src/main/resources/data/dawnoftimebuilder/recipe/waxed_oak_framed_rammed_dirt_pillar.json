@@ -6,12 +6,8 @@
     "IiI"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:waxed_oak_planks"
-    },
-    "i": {
-      "item": "dawnoftimebuilder:rammed_dirt"
-    }
+    "I": "dawnoftimebuilder:waxed_oak_planks",
+    "i": "dawnoftimebuilder:rammed_dirt"
   },
   "result": {
     "count": 8,

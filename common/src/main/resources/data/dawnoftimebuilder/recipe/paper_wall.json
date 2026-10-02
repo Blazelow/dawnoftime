@@ -6,12 +6,8 @@
     "IiI"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:paper"
-    },
-    "i": {
-      "item": "minecraft:stick"
-    }
+    "I": "minecraft:paper",
+    "i": "minecraft:stick"
   },
   "result": {
     "count": 4,

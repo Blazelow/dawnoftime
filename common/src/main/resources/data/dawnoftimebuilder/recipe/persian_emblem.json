@@ -6,15 +6,9 @@
     "x x"
   ],
   "key": {
-    "b": {
-      "item": "dawnoftimebuilder:sandstone_bricks"
-    },
-    "i": {
-      "item": "minecraft:gold_nugget"
-    },
-    "x": {
-      "item": "minecraft:sandstone"
-    }
+    "b": "dawnoftimebuilder:sandstone_bricks",
+    "i": "minecraft:gold_nugget",
+    "x": "minecraft:sandstone"
   },
   "result": {
     "count": 4,

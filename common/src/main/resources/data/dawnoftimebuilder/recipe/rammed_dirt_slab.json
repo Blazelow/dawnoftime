@@ -4,9 +4,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:rammed_dirt"
-    }
+    "I": "dawnoftimebuilder:rammed_dirt"
   },
   "result": {
     "count": 6,

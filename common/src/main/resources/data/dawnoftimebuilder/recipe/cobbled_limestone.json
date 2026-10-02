@@ -5,9 +5,7 @@
     "ii"
   ],
   "key": {
-    "i": {
-      "item": "minecraft:dripstone_block"
-    }
+    "i": "minecraft:dripstone_block"
   },
   "result": {
     "count": 4,

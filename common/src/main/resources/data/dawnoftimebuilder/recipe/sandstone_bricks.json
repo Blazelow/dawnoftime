@@ -5,9 +5,7 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:cut_sandstone"
-    }
+    "I": "minecraft:cut_sandstone"
   },
   "result": {
     "count": 4,

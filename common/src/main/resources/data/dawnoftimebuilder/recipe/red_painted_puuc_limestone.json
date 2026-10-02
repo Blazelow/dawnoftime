@@ -4,12 +4,8 @@
     "iI"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:puuc_limestone"
-    },
-    "i": {
-      "item": "minecraft:red_dye"
-    }
+    "I": "dawnoftimebuilder:puuc_limestone",
+    "i": "minecraft:red_dye"
   },
   "result": {
     "count": 6,

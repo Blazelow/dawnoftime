@@ -6,15 +6,9 @@
     "Ii"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:iron_ingot"
-    },
-    "i": {
-      "item": "dawnoftimebuilder:red_painted_log"
-    },
-    "x": {
-      "item": "dawnoftimebuilder:charred_spruce_glass_pane"
-    }
+    "I": "minecraft:iron_ingot",
+    "i": "dawnoftimebuilder:red_painted_log",
+    "x": "dawnoftimebuilder:charred_spruce_glass_pane"
   },
   "result": {
     "count": 6,

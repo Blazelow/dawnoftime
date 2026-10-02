@@ -5,15 +5,9 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:spruce_planks"
-    },
-    "i": {
-      "tag": "minecraft:logs_that_burn"
-    },
-    "o": {
-      "item": "minecraft:iron_ingot"
-    }
+    "I": "minecraft:spruce_planks",
+    "i": "#minecraft:logs_that_burn",
+    "o": "minecraft:iron_ingot"
   },
   "result": {
     "id": "dawnoftimebuilder:irori_fireplace"

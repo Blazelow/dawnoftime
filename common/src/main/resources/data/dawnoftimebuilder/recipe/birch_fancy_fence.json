@@ -5,12 +5,8 @@
     "xix"
   ],
   "key": {
-    "x": {
-      "item": "minecraft:stick"
-    },
-    "i": {
-      "item": "minecraft:birch_planks"
-    }
+    "x": "minecraft:stick",
+    "i": "minecraft:birch_planks"
   },
   "result": {
     "count": 6,

@@ -6,15 +6,9 @@
     "o o"
   ],
   "key": {
-    "i": {
-      "item": "minecraft:gold_nugget"
-    },
-    "x": {
-      "item": "minecraft:feather"
-    },
-    "o": {
-      "item": "dawnoftimebuilder:marble"
-    }
+    "i": "minecraft:gold_nugget",
+    "x": "minecraft:feather",
+    "o": "dawnoftimebuilder:marble"
   },
   "result": {
     "count": 4,

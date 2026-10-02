@@ -6,12 +6,8 @@
     " I "
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:marble"
-    },
-    "x": {
-      "item": "minecraft:dirt"
-    }
+    "I": "dawnoftimebuilder:marble",
+    "x": "minecraft:dirt"
   },
   "result": {
     "count": 2,

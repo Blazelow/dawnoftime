@@ -1,7 +1,10 @@
 {
     "pack": {
         "description": "${mod_name}",
-        "pack_format": 8
+        "pack_format": 75,
+        "min_format": [75, 0],
+        "max_format": [94, 1],
+        "supported_formats": [75, 94]
     },
     "fusion": {
         "overrides_folder": "fusion-overrides"

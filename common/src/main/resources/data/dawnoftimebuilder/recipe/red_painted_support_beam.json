@@ -5,12 +5,8 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:red_painted_log"
-    },
-    "i": {
-      "item": "dawnoftimebuilder:red_painted_support_slab"
-    }
+    "I": "dawnoftimebuilder:red_painted_log",
+    "i": "dawnoftimebuilder:red_painted_support_slab"
   },
   "result": {
     "count": 8,

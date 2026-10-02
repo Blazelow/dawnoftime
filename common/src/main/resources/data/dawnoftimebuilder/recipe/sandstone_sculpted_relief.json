@@ -4,9 +4,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:sandstone_bricks_edge"
-    }
+    "I": "dawnoftimebuilder:sandstone_bricks_edge"
   },
   "result": {
     "count": 3,

@@ -5,12 +5,8 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:white_wool"
-    },
-    "i": {
-      "item": "minecraft:stick"
-    }
+    "I": "minecraft:white_wool",
+    "i": "minecraft:stick"
   },
   "result": {
     "count": 4,

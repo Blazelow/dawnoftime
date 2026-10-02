@@ -6,12 +6,8 @@
     "iIi"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:cut_sandstone"
-    },
-    "i": {
-      "item": "minecraft:cut_sandstone_slab"
-    }
+    "I": "minecraft:cut_sandstone",
+    "i": "minecraft:cut_sandstone_slab"
   },
   "result": {
     "count": 4,

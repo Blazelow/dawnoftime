@@ -6,15 +6,9 @@
     "ibi"
   ],
   "key": {
-    "b": {
-      "item": "dawnoftimebuilder:limestone_bricks"
-    },
-    "i": {
-      "item": "minecraft:blue_dye"
-    },
-    "x": {
-      "item": "minecraft:gold_nugget"
-    }
+    "b": "dawnoftimebuilder:limestone_bricks",
+    "i": "minecraft:blue_dye",
+    "x": "minecraft:gold_nugget"
   },
   "result": {
     "count": 4,

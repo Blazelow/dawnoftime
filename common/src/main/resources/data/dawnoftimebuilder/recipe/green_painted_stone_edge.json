@@ -4,9 +4,7 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:green_painted_stone_slab"
-    }
+    "I": "dawnoftimebuilder:green_painted_stone_slab"
   },
   "result": {
     "count": 6,

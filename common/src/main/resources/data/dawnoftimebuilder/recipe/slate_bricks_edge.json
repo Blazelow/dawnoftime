@@ -4,9 +4,7 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:slate_bricks_slab"
-    }
+    "I": "dawnoftimebuilder:slate_bricks_slab"
   },
   "result": {
     "count": 6,

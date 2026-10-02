@@ -1,5 +1,9 @@
 package org.dawnoftime.dawnoftime.block.japanese;
 
+import net.minecraft.world.level.LevelAccessor;
+import java.util.function.Consumer;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundSource;
@@ -15,7 +19,6 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -105,8 +108,8 @@ public class SmallTatamiMatBlock extends WaterloggedBlock implements IBlockChain
     }
 
     @Override
-    public @NotNull BlockState updateShape(BlockState stateIn, @NotNull Direction facing, @NotNull BlockState facingState, @NotNull LevelAccessor worldIn, @NotNull BlockPos currentPos, @NotNull BlockPos facingPos) {
-        stateIn = super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+    public @NotNull BlockState updateShape(BlockState stateIn, LevelReader worldIn, ScheduledTickAccess scheduledTickAccess, BlockPos currentPos, Direction facing, BlockPos facingPos, BlockState facingState, RandomSource randomSource) {
+        stateIn = super.updateShape(stateIn, worldIn, scheduledTickAccess, currentPos, facing, facingPos, facingState, randomSource);
         if(facing.getAxis().isVertical()) {
             stateIn = stateIn.setValue(ATTACHED, false);
             if(stateIn.getValue(ROLLED) && stateIn.getValue(STACK) == 1) {
@@ -131,18 +134,18 @@ public class SmallTatamiMatBlock extends WaterloggedBlock implements IBlockChain
             worldIn.setBlock(pos, newState, 10);
     }
 
-    private BlockState tryMergingWithSprucePlanks(BlockState state, LevelAccessor worldIn, BlockPos pos) {
+    private BlockState tryMergingWithSprucePlanks(BlockState state, LevelReader worldIn, BlockPos pos) {
         if (state.getValue(ROLLED))
             return state;
 
         Block blockDown = worldIn.getBlockState(pos.below()).getBlock();
-        if (blockDown == SPRUCE_PLANKS) {
+        if (blockDown == SPRUCE_PLANKS && worldIn instanceof LevelAccessor accessor) {
             Direction.Axis axis = state.getValue(HORIZONTAL_AXIS);
             BlockState floorState = DoTBBlocksRegistry.INSTANCE.SMALL_TATAMI_FLOOR.get()
                     .defaultBlockState()
                     .setValue(SmallTatamiFloorBlock.HORIZONTAL_AXIS, axis);
 
-            worldIn.setBlock(pos.below(), floorState, 10);
+            accessor.setBlock(pos.below(), floorState, 10);
             return Blocks.AIR.defaultBlockState();
         }
 
@@ -162,7 +165,7 @@ public class SmallTatamiMatBlock extends WaterloggedBlock implements IBlockChain
                 Containers.dropItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(this.asItem()));
             } else
                 state = state.setValue(ROLLED, !isRolled);
-            state = this.updateShape(state, Direction.DOWN, worldIn.getBlockState(pos.below()), worldIn, pos, pos.below());
+            state = this.updateShape(state, worldIn, worldIn, pos, Direction.DOWN, pos.below(), worldIn.getBlockState(pos.below()), worldIn.random);
             worldIn.setBlock(pos, state, 10);
             worldIn.playSound(player, pos, this.soundType.getPlaceSound(), SoundSource.BLOCKS, (this.soundType.getVolume() + 1.0F) / 2.0F, this.soundType.getPitch() * 0.8F);
 
@@ -197,10 +200,9 @@ public class SmallTatamiMatBlock extends WaterloggedBlock implements IBlockChain
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, Item.TooltipContext context,
-            @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, Consumer<Component> tooltip, TooltipFlag flag) {
         super.appendHoverText(stack, context, tooltip, flag);
-        tooltip.add(Component.translatable("tooltip.dawnoftimebuilder.small_tatami_mat"));
+        tooltip.accept(Component.translatable("tooltip.dawnoftimebuilder.small_tatami_mat"));
     }
 
 }

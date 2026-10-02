@@ -5,12 +5,8 @@
     "Ii"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:clay_ball"
-    },
-    "i": {
-      "item": "minecraft:wheat"
-    }
+    "I": "minecraft:clay_ball",
+    "i": "minecraft:wheat"
   },
   "result": {
     "count": 8,

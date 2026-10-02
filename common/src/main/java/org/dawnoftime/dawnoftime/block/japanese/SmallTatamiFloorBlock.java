@@ -1,5 +1,6 @@
 package org.dawnoftime.dawnoftime.block.japanese;
 
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundSource;
@@ -76,7 +77,7 @@ public class SmallTatamiFloorBlock extends BlockDoT {
     }
 
     @Override
-    public void onRemove(@NotNull BlockState state, Level world, @NotNull BlockPos pos, @NotNull BlockState newState, boolean isMoving) {
+    public void affectNeighborsAfterRemoval(@NotNull BlockState state, ServerLevel world, @NotNull BlockPos pos, boolean isMoving) {
         world.setBlock(pos, Blocks.SPRUCE_PLANKS.defaultBlockState(), 10);
         Containers.dropItemStack(world, pos.getX(), pos.getY() + 1, pos.getZ(),
                 new ItemStack(DoTBBlocksRegistry.INSTANCE.SMALL_TATAMI_MAT.get().asItem(), 1));

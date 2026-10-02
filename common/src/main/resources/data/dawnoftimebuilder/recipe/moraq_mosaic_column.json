@@ -6,18 +6,10 @@
     "cIw"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:sandstone_wall"
-    },
-    "w": {
-      "item": "dawnoftimebuilder:clay_tile_white"
-    },
-    "b": {
-      "item": "dawnoftimebuilder:clay_tile_blue"
-    },
-    "c": {
-      "item": "dawnoftimebuilder:clay_tile_cyan"
-    }
+    "I": "minecraft:sandstone_wall",
+    "w": "dawnoftimebuilder:clay_tile_white",
+    "b": "dawnoftimebuilder:clay_tile_blue",
+    "c": "dawnoftimebuilder:clay_tile_cyan"
   },
   "result": {
     "count": 3,

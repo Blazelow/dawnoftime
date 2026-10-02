@@ -4,9 +4,7 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:sandstone_bricks_slab"
-    }
+    "I": "dawnoftimebuilder:sandstone_bricks_slab"
   },
   "result": {
     "count": 6,

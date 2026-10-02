@@ -5,9 +5,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:black_wrought_iron_fence"
-    }
+    "I": "dawnoftimebuilder:black_wrought_iron_fence"
   },
   "result": {
     "count": 6,

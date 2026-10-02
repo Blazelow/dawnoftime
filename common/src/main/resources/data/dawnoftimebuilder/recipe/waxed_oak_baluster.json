@@ -4,9 +4,7 @@
     "III"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:waxed_oak_fence"
-    }
+    "I": "dawnoftimebuilder:waxed_oak_fence"
   },
   "result": {
     "count": 3,

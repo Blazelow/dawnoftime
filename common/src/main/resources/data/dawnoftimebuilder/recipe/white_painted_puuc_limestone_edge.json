@@ -4,9 +4,7 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:white_painted_puuc_limestone_slab"
-    }
+    "I": "dawnoftimebuilder:white_painted_puuc_limestone_slab"
   },
   "result": {
     "count": 6,

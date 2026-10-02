@@ -4,9 +4,7 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:rammed_dirt_slab"
-    }
+    "I": "dawnoftimebuilder:rammed_dirt_slab"
   },
   "result": {
     "count": 6,

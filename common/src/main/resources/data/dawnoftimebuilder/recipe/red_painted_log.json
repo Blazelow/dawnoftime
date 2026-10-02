@@ -1,12 +1,8 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    {
-      "item": "minecraft:red_dye"
-    },
-    {
-      "item": "minecraft:stripped_spruce_log"
-    }
+    "minecraft:red_dye",
+    "minecraft:stripped_spruce_log"
   ],
   "result": {
     "count": 6,

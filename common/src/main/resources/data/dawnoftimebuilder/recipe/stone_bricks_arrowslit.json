@@ -6,9 +6,7 @@
     "I I"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:stone_brick_stairs"
-    }
+    "I": "minecraft:stone_brick_stairs"
   },
   "result": {
     "count": 16,

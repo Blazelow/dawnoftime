@@ -5,12 +5,8 @@
     "IiI"
   ],
   "key": {
-    "i": {
-      "item": "minecraft:cherry_log"
-    },
-    "I": {
-      "item": "minecraft:cherry_planks"
-    }
+    "i": "minecraft:cherry_log",
+    "I": "minecraft:cherry_planks"
   },
   "result": {
     "count": 9,

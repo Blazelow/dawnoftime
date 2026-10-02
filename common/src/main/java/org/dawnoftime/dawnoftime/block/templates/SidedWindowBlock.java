@@ -1,5 +1,7 @@
 package org.dawnoftime.dawnoftime.block.templates;
 
+import org.jetbrains.annotations.Nullable;
+import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
@@ -38,8 +40,8 @@ public class SidedWindowBlock extends WaterloggedHorizontalBlock {
     }
 
     @Override
-    public void neighborChanged(@NotNull BlockState state, @NotNull Level worldIn, @NotNull BlockPos pos, @NotNull Block blockIn, @NotNull BlockPos fromPos, boolean isMoving) {
-        super.neighborChanged(state, worldIn, pos, blockIn, fromPos, isMoving);
+    public void neighborChanged(@NotNull BlockState state, @NotNull Level worldIn, @NotNull BlockPos pos, @NotNull Block blockIn, @Nullable Orientation orientation, boolean isMoving) {
+        super.neighborChanged(state, worldIn, pos, blockIn, orientation, isMoving);
         boolean changeTOP = canConnectVertical(state, worldIn, pos);
         boolean changeSIDE = canConnectHorizontal(state, worldIn, pos);
         BlockState newState = state;

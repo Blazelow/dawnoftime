@@ -6,12 +6,8 @@
     "IiI"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:iron_ingot"
-    },
-    "i": {
-      "item": "minecraft:gray_dye"
-    }
+    "I": "minecraft:iron_ingot",
+    "i": "minecraft:gray_dye"
   },
   "result": {
     "id": "dawnoftimebuilder:cast_iron_teapot_gray"

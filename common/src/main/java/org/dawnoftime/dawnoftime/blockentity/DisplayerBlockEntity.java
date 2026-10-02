@@ -1,5 +1,8 @@
 package org.dawnoftime.dawnoftime.blockentity;
 
+import net.minecraft.world.Containers;
+import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -31,22 +34,28 @@ public class DisplayerBlockEntity extends BlockEntity implements Container {
 
 	@Override
 	public @NotNull CompoundTag getUpdateTag(HolderLookup.@NotNull Provider registries) {
-		CompoundTag tag = super.getUpdateTag(registries);
-		ContainerHelper.saveAllItems(tag, this.items, registries);
-		return tag;
+		return this.saveWithoutMetadata(registries);
 	}
 
 	@Override
-	public void saveAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
-		super.saveAdditional(tag, registries);
-		ContainerHelper.saveAllItems(tag, this.items, registries);
+	public void saveAdditional(@NotNull ValueOutput output) {
+		super.saveAdditional(output);
+		ContainerHelper.saveAllItems(output, this.items);
 	}
 
 	@Override
-	public void loadAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
-		super.loadAdditional(tag, registries);
+	public void loadAdditional(@NotNull ValueInput input) {
+		super.loadAdditional(input);
 		this.items.clear();
-		ContainerHelper.loadAllItems(tag, this.items, registries);
+		ContainerHelper.loadAllItems(input, this.items);
+	}
+
+	@Override
+	public void preRemoveSideEffects(@NotNull BlockPos pos, @NotNull BlockState state) {
+		super.preRemoveSideEffects(pos, state);
+		if (this.level != null) {
+			this.items.stream().filter(stack -> !stack.isEmpty()).forEach(stack -> Containers.dropItemStack(this.level, pos.getX(), pos.getY(), pos.getZ(), stack));
+		}
 	}
 
 	@Override

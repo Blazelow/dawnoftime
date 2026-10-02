@@ -6,9 +6,7 @@
     "I"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:painted_acacia_planks"
-    }
+    "I": "dawnoftimebuilder:painted_acacia_planks"
   },
   "result": {
     "count": 6,

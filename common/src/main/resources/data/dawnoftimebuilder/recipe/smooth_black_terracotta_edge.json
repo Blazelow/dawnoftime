@@ -4,9 +4,7 @@
     "II"
   ],
   "key": {
-    "I": {
-      "item": "dawnoftimebuilder:smooth_black_terracotta_slab"
-    }
+    "I": "dawnoftimebuilder:smooth_black_terracotta_slab"
   },
   "result": {
     "count": 6,
