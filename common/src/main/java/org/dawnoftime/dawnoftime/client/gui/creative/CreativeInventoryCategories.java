@@ -1,7 +1,7 @@
 package org.dawnoftime.dawnoftime.client.gui.creative;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import org.dawnoftime.dawnoftime.registry.DoTBBlocksRegistry;
@@ -334,18 +334,24 @@ public enum CreativeInventoryCategories {
                     DoTBBlocksRegistry.INSTANCE.BLUE_PLASTERED_STONE_PLATE.get().asItem(),
                     DoTBBlocksRegistry.INSTANCE.BLUE_PLASTERED_STONE_SLAB.get().asItem(),
                     DoTBBlocksRegistry.INSTANCE.BLUE_PLASTERED_STONE_EDGE.get().asItem(),
+                    DoTBBlocksRegistry.INSTANCE.BLUE_PLASTERED_STONE_COLUMN.get().asItem(),
+                    DoTBBlocksRegistry.INSTANCE.BLUE_PLASTERED_STONE_WINDOW.get().asItem(),
 
                     DoTBBlocksRegistry.INSTANCE.GREEN_PLASTERED_STONE.get().asItem(),
                     DoTBBlocksRegistry.INSTANCE.GREEN_PLASTERED_STONE_STAIRS.get().asItem(),
                     DoTBBlocksRegistry.INSTANCE.GREEN_PLASTERED_STONE_PLATE.get().asItem(),
                     DoTBBlocksRegistry.INSTANCE.GREEN_PLASTERED_STONE_SLAB.get().asItem(),
                     DoTBBlocksRegistry.INSTANCE.GREEN_PLASTERED_STONE_EDGE.get().asItem(),
+                    DoTBBlocksRegistry.INSTANCE.GREEN_PLASTERED_STONE_COLUMN.get().asItem(),
+                    DoTBBlocksRegistry.INSTANCE.GREEN_PLASTERED_STONE_WINDOW.get().asItem(),
 
                     DoTBBlocksRegistry.INSTANCE.YELLOW_PLASTERED_STONE.get().asItem(),
                     DoTBBlocksRegistry.INSTANCE.YELLOW_PLASTERED_STONE_STAIRS.get().asItem(),
                     DoTBBlocksRegistry.INSTANCE.YELLOW_PLASTERED_STONE_PLATE.get().asItem(),
                     DoTBBlocksRegistry.INSTANCE.YELLOW_PLASTERED_STONE_SLAB.get().asItem(),
                     DoTBBlocksRegistry.INSTANCE.YELLOW_PLASTERED_STONE_EDGE.get().asItem(),
+                    DoTBBlocksRegistry.INSTANCE.YELLOW_PLASTERED_STONE_COLUMN.get().asItem(),
+                    DoTBBlocksRegistry.INSTANCE.YELLOW_PLASTERED_STONE_WINDOW.get().asItem(),
 
                     DoTBBlocksRegistry.INSTANCE.RED_ORNAMENTED_PLASTERED_STONE.get().asItem(),
                     DoTBBlocksRegistry.INSTANCE.CHISELED_PLASTERED_STONE.get().asItem(),
@@ -612,11 +618,11 @@ public enum CreativeInventoryCategories {
         return subTabs.get(idx).items();
     }
 
-    public record SubTab(String nameKey, ResourceLocation textureOn, ResourceLocation textureOff, List<Item> items) {
+    public record SubTab(String nameKey, Identifier textureOn, Identifier textureOff, List<Item> items) {
         public SubTab(String nameKey, Item... items) {
             this(nameKey,
-                new ResourceLocation(MOD_ID, "textures/gui/subtab_" + nameKey + "_on.png"),
-                new ResourceLocation(MOD_ID, "textures/gui/subtab_" + nameKey + "_off.png"),
+                Identifier.fromNamespaceAndPath(MOD_ID, "textures/gui/subtab_" + nameKey + "_on.png"),
+                Identifier.fromNamespaceAndPath(MOD_ID, "textures/gui/subtab_" + nameKey + "_off.png"),
                 Arrays.asList(items));
         }
 
